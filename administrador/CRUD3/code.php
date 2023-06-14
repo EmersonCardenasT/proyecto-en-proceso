@@ -2,6 +2,37 @@
 
     require 'dbcon.php';
 
+    if(isset($_GET['student_id']))
+    {
+        $student_id = mysqli_real_escape_string($conexion, $_GET['student_id']);
+
+        $query = "SELECT * FROM registroprofesores WHERE id='$student_id";
+        $query_run = mysqli_query($conexion, $query);
+
+        iF(mysqli_num_rows($query_run) == 1){
+
+            $student = mysqli_fetch_array($query_run);
+
+            $respuesta = [
+                'status' => 200,
+                'message' => 'Usuario registrado correctament por ID',
+                'data' => $student
+            ];
+            echo json_encode($respuesta);
+            return false;
+
+        }else{
+
+            $respuesta = [
+                'status' => 404,
+                'message' => 'Id seleccionado no existe'
+            ];
+            echo json_encode($respuesta);
+            return false;
+
+        }
+    }
+
     if(isset($_POST['save_student']))
     {
         $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);

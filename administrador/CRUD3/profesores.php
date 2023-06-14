@@ -11,7 +11,7 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <!-- Modal -->
+    <!-- Añadir profesores -->
     <div class="modal fade" id="profesorAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -56,6 +56,59 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actualizar profesores -->
+    <div class="modal fade" id="profesorEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Actualiar Datos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="updateStudent">
+                    <div class="modal-body">
+
+                        <div class="alert alert-warning d-none"></div>
+
+                        <input type="text" name="student_id" id="student_id">
+
+                        <div class="mb-3">
+                            <label for="">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Telefono</label>
+                            <input type="text" name="telefono" id="telefono" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Correo</label>
+                            <input type="email" name="correo" id="correo" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                         <div class="mb-3">                            <label for="">Especialidad</label>
+                            <input type="text" name="especialidad" id="especialidad" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Contraseña</label>
+                            <input type="password" name="contraseña" id="contraseña" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="">confirmarContraseña</label>
+                            <input type="password" name="confirmarContraseña" id="confirmarContraseña" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Actualizar changes</button>
                     </div>
                 </form>
             </div>
@@ -109,7 +162,7 @@
                                                 <td><?= $student['especialidad'] ?></td>
                                                 <td>
                                                     <a href="" class="btn btn-info">Ver</a>
-                                                    <a href="" class="btn btn-success">Editar</a>
+                                                    <button type="button" href="" value="<?= $student['id']; ?>" class="editStudentBtn btn btn-success">Editar</button>
                                                     <a href="" class="btn btn-warning">Borrar</a>
                                                 </td>
                                             </tr>
@@ -162,6 +215,39 @@
 
                         $('#myTable').load(location.href + " #myTable");
 
+                    }
+
+                }
+            });
+
+        });
+
+        $(document).on('click', '.editStudentBtn', function(){
+
+            var student_id = $(this).val();
+
+            $.ajax({
+                type:"GET",
+                url:"code.php?student_id=" + student_id,
+                success: function (response){
+
+                    var res = jQuery.parseJSON(response);
+                    if(res.status == 422){
+                        alert(res.message);
+
+                    }else if (res.status == 200) {
+                        
+                        $('#student_id').val(res.data.id);
+                        $('#nombre').val(res.data.nombre);
+                        $('#apellidos').val(res.data.apellidos);
+                        $('#telefono').val(res.data.telefono);
+                        $('#correo').val(res.data.correo);
+                        $('#especialidad').val(res.data.especialidad);
+                        $('#contraseña').val(res.data.contraseña);
+                        $('#confirmarContraseña').val(res.data.confirmarContraseña);
+
+                        $('#profesorEditModal').modal('show');
+                        
                     }
 
                 }
