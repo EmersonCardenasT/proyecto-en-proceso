@@ -27,6 +27,8 @@
             <p class="nav-item nav-link active">Administrador del sitio Web</p>
             <a href="<?php echo $url; ?>/administrador/inicio.php" class="nav-item nav-link active">Inicio</a>
             <a href="<?php echo $url; ?>/administrador/seccion/productos.php" class="nav-item nav-link active">Insertar Fotos</a>
+            <a href="<?php echo $url; ?>/administrador/seccion/eventos.php" class="nav-item nav-link active">Agregar Proximos Eventos</a>
+
         </div>
         
     </nav>

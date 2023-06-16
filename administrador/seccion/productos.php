@@ -18,7 +18,6 @@
     echo $txtImagen."<br>";
     echo $accion."<br>"; */
 
-
     include("../config/PDO.php");
 
     switch ($accion) {

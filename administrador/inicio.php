@@ -12,7 +12,7 @@
     <div class="col-md-12">
 
         <div class="jumbotron text-center">
-            <h1 class="display-3">Bienvenido <?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"]; ?> </h1>
+            <h1 class="display-3">Bienvenido <?php echo $_SESSION["nombre"]." ".$_SESSION["apellidos"]; ?> </h1>
             <p class="lead">Jumbo helper text</p>
             <hr class="my-2">
                 <img src="../img/fondo5.jpg" width="400" class="img-thumbnail rounded mx-auto d-block">

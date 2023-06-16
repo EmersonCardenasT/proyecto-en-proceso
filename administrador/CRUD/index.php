@@ -29,6 +29,7 @@
 
     <div class="container">
         <form action="" method="POST" enctype="multipart/form-data">
+
         <br><br>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -37,6 +38,15 @@
 
         <a href="../controlador/controlador_cerrar_sesion.php" class="btn btn-success">CERRAR SESION</a>
         <br><br>
+
+        
+        <div class="container-fluid">
+            <form action="" class="d-flex">
+                <br>
+                <input type="text" class="form-control me-2 light-table-filter" data-table="table_id" placeholder="Buscar...">
+                <br>
+            </form>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,7 +161,7 @@
         </form>
 
         <div class="row">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered light-table-filter table_id">
                 <thead class="thead-dark">
                     <tr>
                         <th>DNI</th>
@@ -212,6 +222,7 @@
     </div>
 
     <script src="function/validar_registro.js"></script>
+    <script src="js/buscador.js"></script>
     
 </body>
 </html>
