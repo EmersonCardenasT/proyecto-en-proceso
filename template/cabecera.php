@@ -89,7 +89,7 @@
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0 action-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="administrador/login.php">
+                            <a class="nav-link " href="administrador/index.php">
                                 <i class="bi bi-person "></i>
                             </a>
                         </li>

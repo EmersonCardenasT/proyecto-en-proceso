@@ -40,8 +40,8 @@
 
                     <form  method="POST" action="">
                         <div class="form-group mb-3">
-                            <label class="font-weight-bold">Correo <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" placeholder="Ingresa tu correo" name="correo">
+                            <label class="font-weight-bold"> DNI <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Ingresa tu correo" name="DNI">
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Ingresa tu contraseña <span class="text-danger">*</span></label>
@@ -56,12 +56,12 @@
                         <input type="submit" class="btn btn-outline-primary width-100" name="iniciarAdmin" value="Iniciar Admin">
                         
                         <a href="login.php" class="btn btn btn-outline-info width-100">Volver</a> 
-                        <a href="CRUD/index.php" class="btn btn btn-outline-info width-100">CRUD</a> 
+                        <!-- <a href="CRUD/index.php" class="btn btn btn-outline-info width-100">CRUD</a>  -->
 
 
                     </form>
 
-                    <small class="d-inline-block text-muted mt-5">I.E.P. EMANUEL | © 2023 De la mano de Dios</small>
+                    <small class="d-inline-block text-muted mt-5"> © ECARDENAS TORRES | 2023 </small>
 
                 </div>
             </div>

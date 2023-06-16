@@ -29,7 +29,7 @@
             $sentenciaSQL->bindParam(':nombre', $txtNombre);
 
             $fecha = new DateTime();
-            $nombreArchivo = ($txtImagen != "")?$fecha -> getTimestamp()."_".$_FI   LES["txtImagen"]["name"]:"imagen.jpg";
+            $nombreArchivo = ($txtImagen != "")?$fecha -> getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
 
             $tmpImagen = $_FILES["txtImagen"]["tmp_name"];
 

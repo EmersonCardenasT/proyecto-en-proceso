@@ -1,6 +1,16 @@
 <?php
+
+    session_start();
+    if(empty($_SESSION["id"])){
+        header("location:../Admin.php");   
+    }
+
+?>
+
+<?php
     require "profesores.php";
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +34,8 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Agregar Registro + 
         </button>
+
+        <a href="../controlador/controlador_cerrar_sesion.php" class="btn btn-success">CERRAR SESION</a>
         <br><br>
 
         <!-- Modal -->

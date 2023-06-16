@@ -33,8 +33,8 @@
                   <i class="fas fa-user"></i>
                </div>
                <div class="div">
-                  <h5>Usuario</h5>
-                  <input id="usuario" type="text" class="input" name="usuario">
+                  <h5>Correo</h5>
+                  <input id="usuario" type="email" class="input" name="correo">
                </div>
             </div>
             <div class="input-div pass">
