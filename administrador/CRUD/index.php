@@ -1,216 +1,205 @@
+<?php
+    require "profesores.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTRO USUARIOS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-</head>
-<body>
+    <title>Document</title>
 
-    <!-- Button trigger modal -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="completeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="completeusuario" class="form-label">Usuario: </label>
-                    <input type="text" class="form-control" id="completeusuario" name="usuario" placeholder="Cree un usuario">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="completenombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" id="completenombres" name="nombres" placeholder="Ingrese nombre">
-                </div>
-                <div class="form-group">
-                    <label for="completeapellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="completeapellidos" name="apellidos"  placeholder="Ingrese sus apellidos">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="completeemail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="completeemail" name="email" placeholder="Ingrese email">
-                </div>
-                <div class="form-group">
-                    <label for="completecontraseña" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="completecontraseña" name="contraseña" placeholder="Ingrese su contraseña">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="completerepContraseña" class="form-label">Confirme su contraseña</label>
-                    <input type="password" class="form-control" id="completerepContraseña" name="repContraseña" placeholder="Confirme contraseña">
-                </div>
-                <div class="modal-footer" class="form-label">
-                <button type="button" class="btn btn-dark" data-dismiss="modal" >Close</button>
-                <button type="button" class="btn btn-danger" value="" onclick="adduser()">Save changes</button>
-                </div>
-            </form>
-        </div>
-        
-        </div>
-    </div>
-    </div>
-
-    <!-- Actualizar modal -->
-
-    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Actualizar registro</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="updateusuario" class="form-label">Usuario: </label>
-                    <input type="text" class="form-control" id="updateusuario" placeholder="Cree un usuario">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="updatenombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" id="updatenombres" placeholder="Ingrese nombre">
-                </div>
-                <div class="form-group">
-                    <label for="updateapellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="updateapellidos"  placeholder="Ingrese sus apellidos">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="updateemail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="updateemail"  placeholder="Ingrese email">
-                </div>
-                <div class="form-group">
-                    <label for="updatecontraseña" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="updatecontraseña" placeholder="Ingrese su contraseña">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="updaterepContraseña" class="form-label">Confirme su contraseña</label>
-                    <input type="password" class="form-control" id="updaterepContraseña" placeholder="Confirme contraseña">
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal" >Cancelar</button>
-                <button type="button" class="btn btn-danger">Actualizar</button>
-                <input type="hidden" id="hiddendata">
-                </div>
-            </form>
-        </div>
-        
-        </div>
-    </div>
-    </div>
-
-    <div class="container my-3">
-        <h1 class="text-center">REGISTRO IEP EMANUEL</h1>
-        <button type="button" class="btn btn-dark my-3" data-toggle="modal" data-target="#completeModal">Añadir nuevo usuario</button>
-        <div id="displayDataTable"></div>
-    </div>
-
-    <!--Boostrap-->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
-    <script>
+</head>
+<body>
 
-        $(document).ready(function(){
-            displayData();
-        });
+    <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+        <br><br>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Agregar Registro + 
+        </button>
+        <br><br>
 
-        //display function
-        function displayData(){
-            var displayData = "true";
-            $.ajax({
-                url:"display.php",
-                type:"post",
-                data:{
-                    displaySend:displayData
-                },
-                success:function(data, status){
-                    $('#displayDataTable').html(data);
-                }
-            });
-        }
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Registro de usuarios</h5>
+                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <!-- El echo $txtID hace que la informacion no se pierda al momento de presionar los botones -->
+                            <input type="hidden" required name="txtID" value="<?php echo $txtID; ?>" placeholder="" id="txtID" require=""> 
+                            <br>
 
-        function adduser(){
-            var usuarioAdd = $('#completeusuario').val()
-            var nombresAdd = $('#completenombres').val()
-            var apellidosAdd = $('#completeapellidos').val()
-            var emailAdd = $('#completeemail').val()
-            var contraseñaAdd = $('#completecontraseña').val()
-            var repContraseñaAdd = $('#completerepContraseña').val()
+                            <div class="form-group col-md-6">
+                                <label for="">DNI</label>
+                                <input type="text" class="form-control" <?php echo (isset($error['DNI']))?"is-invalid":""; ?> name="txtDNI" value="<?php echo $txtDNI; ?>" placeholder="" id="txtDNI" require=""> 
+                                <div class="invalid-feedback">
+                                    <?php echo (isset($error['DNI']))?$error['DNI']:""; ?>
+                                </div>
+                                
+                            </div>
 
-            $.ajax({
-                url: "insert.php",
-                type: "post",
-                data:{
-                    usuarioSend:usuarioAdd,
-                    nombresSend:nombresAdd,
-                    apellidosSend:apellidosAdd,
-                    emailSend:emailAdd,
-                    contraseñaSend:contraseñaAdd,
-                    repContraseñaSend:repContraseñaAdd
-                },
-                success:function(data, status){
-                    //function to display data:
-                    //console.log(status);
-                    displayData();
-                }
+                            <div class="form-group col-md-6">
+                                <label for="">Nombres</label>
+                                <input type="text" class="form-control" <?php echo (isset($error['nombre']))?"is-invalid":""; ?> name="txtNombre" value="<?php echo $txtNombre; ?>" placeholder="" id="txtNombre" require=""> 
+                                <div class="invalid-feedback">
+                                    <?php echo (isset($error['nombre']))?$error['nombre']:""; ?>
+                                </div>
 
-            })
+                            </div>
 
-        }
+                            <div class="form-group col-md-6">
+                                <label for="">Apellidos</label>
+                                <input type="text" class="form-control" <?php echo (isset($error['apellidos']))?"is-invalid":""; ?> name="txtApellidos" value="<?php echo $txtApellidos; ?>" placeholder="" id="txtApellidos" require=""> 
+                                <div class="invalid-feedback">
+                                    <?php echo (isset($error['apellidos']))?$error['apellidos']:""; ?>
+                                </div>
+                                
+                            </div>
 
-        //BORRAR REGISTRO
-        function DeleteUser(deleteid){
-            $.ajax({
-                url:"delete.php",
-                type:"post",
-                data:{
-                    deletesend:deleteid
-                },
-                success:function(data, status){
-                    displayData();
-                }
-            });
-        }
+                            <div class="form-group col-md-6">
+                                <label for="">Telefono</label>
+                                <input type="text" class="form-control" <?php echo (isset($error['telefono']))?"is-invalid":""; ?> name="txtTelefono" value="<?php echo $txtTelefono; ?>" placeholder="" id="txtTelefono" require=""> 
+                                <div class="invalid-feedback">
+                                    <?php echo (isset($error['telefono']))?$error['telefono']:""; ?>
+                                </div>
 
-        //ACTUALIZAR REGISTRO
-        function GetDetails(updateid){
+                            </div>
 
-            $("#hiddendata").val(updateid);
+                            <label for="">Correo</label>
+                            <input type="email" class="form-control" <?php echo (isset($error['correo']))?"is-invalid":""; ?> name="txtCorreo" value="<?php echo $txtCorreo; ?>" placeholder="" id="txtCorreo" require=""> 
+                            <div class="invalid-feedback">
+                                <?php echo (isset($error['correo']))?$error['correo']:""; ?>
+                            </div>
 
-            $.post("update.php", {updateid:updateid}, function(data, 
-            status){
-                var userid = JSON.parse(data);
-                $("#updateusuario").val(userid.usuario);
-                $("#updatenombres").val(userid.nombres);
-                $("#updateapellidos").val(userid.apellidos);
-                $("#updateemail").val(userid.correo);
-                $("#updatecontraseña").val(userid.contraseña);
-                $("#updaterepContraseña").val(userid.repContraseña);
-            });
+                            
+                            <label for="">Especialidad</label>
+                            <input type="text" class="form-control" <?php echo (isset($error['curso']))?"is-invalid":""; ?> name="txtEspecialidad" value="<?php echo $txtEspecialidad; ?>" placeholder="" id="txtEspecialidad" require=""> 
+                            <div class="invalid-feedback">
+                                <?php echo (isset($error['curso']))?$error['curso']:""; ?>
+                            </div>
 
-            $("#updateModal").modal("show");
+                            <div class="form-group col-md-6">
+                                <label for="">Contraseña</label>
+                                <input type="password" class="form-control" <?php echo (isset($error['contrasenia']))?"is-invalid":""; ?> name="txtContraseña" placeholder="" value="<?php echo $txtContraseña; ?>" id="txtContraseña" require=""> 
+                                <div class="invalid-feedback">
+                                <?php echo (isset($error['contrasenia']))?$error['contrasenia']:""; ?>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="">Confirmar contraseña</label>
+                                <input type="password" class="form-control"  <?php echo (isset($error['confirmarContrasenia']))?"is-invalid":""; ?> name="txtConfirmarContraseña" placeholder="" value="<?php echo $txtConfirmarContraseña; ?>" id="txtConfirmarContraseña" require=""> 
+                                <div class="invalid-feedback">
+                                    <?php echo (isset($error['confirmarContrasenia']))?$error['confirmarContrasenia']:""; ?>
+                                </div>
+
+                            </div>
+
+                            
+                            <label for="">Foto</label>
+                            <input type="file" class="form-control" accept="image/*" name="txtFoto" placeholder="" value="<?php echo $txtFoto; ?>" id="txtFoto" require=""> 
+                            <br>
+                            <?php if($txtFoto != "") {?>
+                                <img src="img/<?php echo $txtFoto; ?>" alt="" class="img-thumbnail rounded mx-auto d-block" width="100px">
+                            <?php } ?>
+                            <br>
+                            <br>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button value="btn1Agregar" <?php echo $accionAgregar; ?> type="submit" name="accion" class="btn btn-success">Agregar</button>
+                        <button value="btn2Modificar" <?php echo $accionModificar; ?> type="submit" name="accion" class="btn btn-warning">Modificar</button>
+                        <button value="btn3Eliminar" <?php echo $accionEliminar; ?> onclick="return Confirmar('¿Realmente deseas borrar?');" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
+                        <button value="btn4Cancelar" <?php echo $accionCancelar; ?> type="submit" name="accion" class="btn btn-primary">Cancelar</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+
+        </form>
+
+        <div class="row">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                        <th>Especialidad</th>
+                        <th>Foto</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <?php foreach($listaEmpleados as $empleado){  ?>
+
+                        <tr>
+                            <td><?php echo $empleado['DNI']; ?></td>
+                            <td><?php echo $empleado['nombre']; ?></td>
+                            <td><?php echo $empleado['apellidos']; ?></td>
+                            <td><?php echo $empleado['telefono']; ?></td>
+                            <td><?php echo $empleado['correo']; ?></td>
+                            <td><?php echo $empleado['curso']; ?></td>
+                            <td><img class="img-thumbnail" width="100px" src="img/<?php echo $empleado['foto']; ?>"></td>
+                            <td>
+                                
+                                <form action="" method="POST">
+
+                                    <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">
+
+                                    <input type="submit" value="Seleccionar" name="accion" class="btn btn-info">
+                                    <button value="btn3Eliminar" onclick="return Confirmar('¿Realmente deseas borrar?');" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
+
+                                </form>
+                        
+                            </td>
+                        </tr>
+
+                <?php } ?>
+
+            </table>
+        </div>
+
+        <?php if($mostrarModal){?>
+
+            <script>
+                $('#exampleModal').modal('show');
+            </script>
+
+        <?php } ?>
+
+        <!-- <script>
+            function Confirmar(Mensaje){
+                return (confirm(Mensaje))?true:false;
+            }
+        </script> -->
+        <?php require "function/mensaje.php"; ?>
+
+    </div>
+
+    <script src="function/validar_registro.js"></script>
     
-        }
-
-    </script>
-
 </body>
 </html>
