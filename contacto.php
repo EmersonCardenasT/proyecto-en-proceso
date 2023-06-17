@@ -16,9 +16,9 @@
 
                     <div class="row">
 
-                        <!--Grid column-->
+                        <!-- En el action esta la ruta del archivo PHP -->
                         <div class="col-md-6 mb-md-0 mb-5">
-                            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+                            <form name="contact-form" action="contact.php" method="POST">
 
                                 <!--Grid row-->
                                 <div class="row">
@@ -26,8 +26,8 @@
                                     <!--Grid column-->
                                     <div class="col-md-6">
                                         <div class="md-form mb-0">
-                                            <input type="text" id="name" name="name" class="form-control">
-                                            <label for="name" class="">Your name</label>
+                                            <label for="name" class="">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control">
                                         </div>
                                     </div>
                                     <!--Grid column-->
@@ -35,21 +35,20 @@
                                     <!--Grid column-->
                                     <div class="col-md-6">
                                         <div class="md-form mb-0">
-                                            <input type="text" id="email" name="email" class="form-control">
-                                            <label for="email" class="">Your email</label>
+                                            <label class="">Apellidos</label>
+                                            <input type="text" name="apellidos" class="form-control">
                                         </div>
                                     </div>
                                     <!--Grid column-->
 
                                 </div>
                                 <!--Grid row-->
-
-                                <!--Grid row-->
+                                
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="md-form mb-0">
-                                            <input type="text" id="subject" name="subject" class="form-control">
-                                            <label for="subject" class="">Subject</label>
+                                            <label for="subject" class="">Correo</label>
+                                            <input type="email" name="correo" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -62,21 +61,27 @@
                                     <div class="col-md-12">
 
                                         <div class="md-form">
-                                            <textarea type="text" id="message" name="message" rows="2"
+                                            <label for="message">Escribe un mensaje</label>
+                                            <textarea type="text" name="mensaje" rows="2"
                                                 class="form-control md-textarea"></textarea>
-                                            <label for="message">Your message</label>
                                         </div>
 
                                     </div>
                                 </div>
+                                <br><br>
                                 <!--Grid row-->
+                                <input type="submit"  name="enviar" class="text-center btn btn-primary">
 
                             </form>
 
-                            <div class="text-center text-md-left">
+                            <?php
+                                include "contact.php";
+                            ?>
+
+                            <!-- <div class="text-center text-md-left">
                                 <a class="btn btn-primary"
-                                    onclick="document.getElementById('contact-form').submit();">Send</a>
-                            </div>
+                                    onclick="document.getElementById('contact-form').submit();">Enviar</a>
+                            </div> -->
                             <div class="status"></div>
                         </div>
                         <!--Grid column-->

@@ -10,7 +10,7 @@
     
 ?>
 
-<div id="carouselExampleCaptions" class="carousel slide mb-3" data-bs-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide mb-3 col-md-12" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -63,62 +63,38 @@
     <main id="main">
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about mt-5">
-            <div class="container-fluid">
-                <h2 class="h1-responsive font-weight-bold text-center my-2">About</h2>
+            <div class="container course pb-5 pt-5">
+                <h2 class="h1-responsive font-weight-bold text-center my-4">Courses</h2>
                 <!--Section description-->
-                <p class="text-center w-responsive mx-auto mb-1">Do you have any questions? Please do not hesitate to
+                <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to
                     contact us directly. Our team will come back to you within
                     a matter of hours to help you.</p>
-                <div class="row  pt-5 pb-5">
-
-                    
-                    <?php foreach($listaLibros as $libro){ ?>
-                    <div class="col-lg-5 align-items-stretch video-box">
-
-                        <img src="./img/<?php echo $libro['imagen']; ?>" alt="" class="img-thumbnail rounded">
-                        
-                    </div>
-                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
-
-                        <div class="content">
-                        <h2 class=""><?php echo $libro['nombre']; ?> </h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                            </p>
-                            <p class="font-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bx bx-check-double"></i> Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</li>
-                                <li><i class="bx bx-check-double"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                    storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                            </ul>
-                            <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
-                            </p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center text-muted display-4">ACTIVIDADES</h2>
+                        <div class="card box">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <?php foreach($listaLibros as $libro){ ?>
+                                <img src="./img/<?php echo $libro['imagen']; ?>"
+                                    class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $libro['nombre']; ?></h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card's content.</p>
+                                <a href="#!" class="btn btn-primary">Read More</a>
+                                        <hr> <br>
+                                <?php } ?>
+                            </div>  
                         </div>
-                        
-                    </div> 
-                    <hr>
-                    <br>
-                    <?php } ?>
-
+                    </div>
                 </div>
-
             </div>
-        </section><!-- End About Section 
+
+        
 
         
 
