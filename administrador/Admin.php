@@ -55,7 +55,7 @@
 
                         <input type="submit" class="btn btn-outline-primary width-100" name="iniciarAdmin" value="Iniciar Admin">
                         
-                        <a href="login.php" class="btn btn btn-outline-info width-100">Volver</a> 
+                        <a href="../index.php" class="btn btn btn-outline-info width-100">Volver</a> 
                         <!-- <a href="CRUD/index.php" class="btn btn btn-outline-info width-100">CRUD</a>  -->
 
 

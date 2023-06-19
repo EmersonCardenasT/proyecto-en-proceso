@@ -11,7 +11,7 @@
                 $_SESSION["id"] = $datos -> id;
                 $_SESSION["nombre"] = $datos -> nombres;
                 $_SESSION["apellidos"] = $datos -> apellidos;
-                header("Location: CRUD/index.php");
+                header("Location: CRUD2/index.php");
             }else{
                 echo "<div class='alert alert-danger'>Acceso denegado</div>";
             }

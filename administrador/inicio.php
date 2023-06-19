@@ -2,7 +2,7 @@
 
     session_start();
     if(empty($_SESSION["id"])){
-        header("location:login.php");   
+        header("location:index.php");   
     }
 
     include("template/cabecera.php");
@@ -15,7 +15,7 @@
             <h1 class="display-3">Bienvenido <?php echo $_SESSION["nombre"]." ".$_SESSION["apellidos"]; ?> </h1>
             <p class="lead">Jumbo helper text</p>
             <hr class="my-2">
-                <img src="../img/fondo5.jpg" width="400" class="img-thumbnail rounded mx-auto d-block">
+                <img src="../img/detail.jpg" width="400" class="img-thumbnail rounded mx-auto d-block">
             <p class="lead">
                 <a class="btn btn-primary btn-lg" href="seccion/productos.php" role="button">Administrar libros</a>
             </p>

@@ -1,6 +1,5 @@
 <?php
 
-    //include ("function/contrasenia.php");
 
     $txtID = (isset($_POST['txtID']))?$_POST['txtID']:"";
     $txtDNI = (isset($_POST['txtDNI']))?$_POST['txtDNI']:"";
@@ -17,44 +16,29 @@
 
     $error = array();
 
-    // if(contrasenasIguales($txtContraseña, $txtConfirmarContraseña)){
-    //     echo "Contraseñas correctas";
-    // }else{
-    //     $error[] = "Las contraseñas no cincidieron";
-    // }
- 
-    include "Conexion/conexion.php";
-
     $accionAgregar = "";
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
+    include "Conexion/conexion.php";
+
     switch($accion){
         case "btn1Agregar":
 
-            if($txtDNI == ""){
-                $error['DNI'] = "Ingrese su DNI";
-            }
             if($txtNombre == ""){
-                $error['nombre'] = "Ingresa el nombre";
+                $error['nombre'] = "Escribe el nombre";
             }
-            if($txtApellidos == ""){
-                $error['apellidos'] = "Ingrese sus apellidos";
+
+            if($txtNombre == ""){
+                $error['DNI'] = "Escribe el DNI";
             }
-            if($txtTelefono == ""){
-                $error['telefono'] = "Ingrese su telefono";
+
+            if($txtNombre == ""){
+                $error['apellidos'] = "Escribe los apellidos";
             }
-            if(!filter_var($txtCorreo, FILTER_VALIDATE_EMAIL)){
-              $error['correo'] = "Correo electronico invalido";  
-            }
-            if($txtEspecialidad == ""){
-                $error['curso'] = "Ingrese su especialidad o curso";
-            }
-            if($txtContraseña == ""){
-                $error['contrasenia'] = "Campo contraseña requerido";
-            }
-            if($txtConfirmarContraseña == ""){
-                $error['confirmarContrasenia'] = "Campo contraseña requerido";
+
+            if($txtNombre == ""){
+                $error['correo'] = "Escribe el correo";
             }
 
             if(count($error) > 0){
@@ -87,10 +71,9 @@
             $sentencia->bindParam(':confirmarContrasenia', $txtConfirmarContraseña);
             $sentencia->execute();
 
-            
             header("Location: index.php");
 
-            break;
+        break;
 
         case "btn2Modificar":
 
@@ -151,7 +134,7 @@
             header("Location: index.php");
 
             break;
-
+    
         case "btn3Eliminar":
 
             $sentencia = $pdo -> prepare("SELECT foto FROM registro_profesores WHERE id=:id"); 
@@ -173,13 +156,13 @@
             header("Location: index.php");
 
             break;
-    
+        
         case "btn4Cancelar":
 
             header("Location: index.php");
-
             break;
 
+    
         case "Seleccionar":
             $accionAgregar = "disabled";
             $accionModificar = $accionEliminar = $accionCancelar = "";
@@ -199,15 +182,14 @@
             $txtFoto = $empleado['foto'];
             $txtContraseña = $empleado['contrasenia'];
             $txtConfirmarContraseña = $empleado['confirmarContrasenia'];
-
-
+    
             break;
-        
-    }
+            
+        }
 
-    $sentencia = $pdo -> prepare("SELECT * FROM registro_profesores");
-    $sentencia -> execute();
-    $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
+        $sentencia = $pdo -> prepare("SELECT * FROM registro_profesores");
+        $sentencia -> execute();
+        $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>

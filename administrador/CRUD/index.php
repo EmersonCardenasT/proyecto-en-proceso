@@ -146,17 +146,15 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
                         <button value="btn1Agregar" <?php echo $accionAgregar; ?> type="submit" name="accion" class="btn btn-success">Agregar</button>
                         <button value="btn2Modificar" <?php echo $accionModificar; ?> type="submit" name="accion" class="btn btn-warning">Modificar</button>
-                        <button value="btn3Eliminar" <?php echo $accionEliminar; ?> onclick="return Confirmar('¿Realmente deseas borrar?');" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
+                        <button value="btn3Eliminar" <?php echo $accionEliminar; ?> type="submit" name="accion" class="btn btn-danger">Eliminar</button>
                         <button value="btn4Cancelar" <?php echo $accionCancelar; ?> type="submit" name="accion" class="btn btn-primary">Cancelar</button>
-                        
                     </div>
                 </div>
             </div>
         </div>
-
-            
 
         </form>
 
@@ -187,13 +185,10 @@
                             <td><img class="img-thumbnail" width="100px" src="img/<?php echo $empleado['foto']; ?>"></td>
                             <td>
                                 
-                                <form action="" method="POST">
-
+                            <form action="" method="POST">
                                     <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">
-
-                                    <input type="submit" value="Seleccionar" name="accion" class="btn btn-info">
-                                    <button value="btn3Eliminar" onclick="return Confirmar('¿Realmente deseas borrar?');" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
-
+                                    <button value="btn3Eliminar"  type="submit" name="accion" class="btn btn-danger">Eliminar</button>
+                                    <input type="submit" value="Seleccionar" name="accion">
                                 </form>
                         
                             </td>
@@ -203,21 +198,6 @@
 
             </table>
         </div>
-
-        <?php if($mostrarModal){?>
-
-            <script>
-                $('#exampleModal').modal('show');
-            </script>
-
-        <?php } ?>
-
-        <!-- <script>
-            function Confirmar(Mensaje){
-                return (confirm(Mensaje))?true:false;
-            }
-        </script> -->
-        <?php require "function/mensaje.php"; ?>
 
     </div>
 

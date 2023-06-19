@@ -1,10 +1,15 @@
 <?php 
     session_start();
     if(empty($_SESSION["id"])){
-        header("location:../login.php");   
+        header("location:index.php");   
     }
+?>
 
-    include("../template/cabecera.php"); ?>
+<?php
+
+    include("../template/cabecera.php"); 
+
+?>
 
 <?php
 
