@@ -12,7 +12,7 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -30,7 +30,7 @@
     <div class="container-fluid bg-light position-relative shadow">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
             <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
-                <i class="flaticon-043-teddy-bear"></i>
+                <i class="bi bi-book-fill"></i>
                 <span class="text-primary">I.E.P. EMANUEL</span>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -52,7 +52,8 @@
                     </div>
                     <a href="contact.php" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="administrador/index.php" class="btn btn-primary px-4">Login</a>
+                <a href="administrador/index.php" class="btn btn-primary px-4">
+                <i class="bi bi-person-square"></i> Iniciar</a>
             </div>
         </nav>
     </div>
