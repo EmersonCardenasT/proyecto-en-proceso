@@ -43,6 +43,8 @@
 
             $sentenciaSQL->bindParam(':imagen', $nombreArchivo);
             $sentenciaSQL->execute();
+
+            header("Location:productos.php");
             
             break;
 

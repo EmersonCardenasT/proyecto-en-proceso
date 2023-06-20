@@ -22,7 +22,7 @@
                 <a href="" class="btn btn-secondary mt-1 py-3 px-5">Leer mas</a>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-                <img class="img-fluid mt-5" src="img/header.png" alt="">
+                <img class="img-fluid mt-5" src="img/banner.jpg" alt="" height="700px" width="700px">
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-5">
                     <div class="card border-0 bg-light shadow-sm pb-2">
-                        <img class="card-img-top mb-2" src="img/class-1.jpg" alt="">
+                        <img class="card-img-top mb-2" src="img/matricula.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Clase de dibujo</h4>
                             <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="card border-0 bg-light shadow-sm pb-2">
-                        <img class="card-img-top mb-2" src="img/class-2.jpg" alt="">
+                        <img class="card-img-top mb-2" src="img/matricula.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Aprendizaje de idiomas</h4>
                             <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-lg-4 mb-5">
                     <div class="card border-0 bg-light shadow-sm pb-2">
-                        <img class="card-img-top mb-2" src="img/class-3.jpg" alt="">
+                        <img class="card-img-top mb-2" src="img/matricula.jpg" alt="">
                         <div class="card-body text-center">
                             <h4 class="card-title">Ciencia básica</h4>
                             <p class="card-text">Justo ea diam stet diam ipsum no sit, ipsum vero et et diam ipsum duo et no et, ipsum ipsum erat duo amet clita duo</p>
@@ -228,8 +228,8 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <p class="section-title pr-5"><span class="pr-2">Book A Seat</span></p>
+                <div class="col-lg-7 mb-5 mb-lg-0"  id="reserva">
+                    <p class="section-title pr-5"><span class="pr-2">CLASES POPULARES - RESERVAR TU LUGAR</span></p>
                     <h1 class="mb-4">Reserve un asiento para su hijo</h1>
                     <p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos,
                         ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est
@@ -239,7 +239,10 @@
                         <li class="py-2"><i class="fa fa-check text-success mr-3"></i>Etsea et sit dolor amet ipsum</li>
                         <li class="py-2"><i class="fa fa-check text-success mr-3"></i>Diam dolor diam elitripsum vero.</li>
                     </ul>
-                    <a href="" class="btn btn-primary mt-4 py-2 px-4">Reservar ahora</a>
+                    <div class="text-center">
+                        <img src="img/flecha.png" alt="" width="150px">
+                    </div>
+                    <!-- <a href="#reserva" class="btn btn-primary mt-4 py-2 px-4">Reservar ahora</a> -->
                 </div>
                 <div class="col-lg-5">
                     <div class="card border-0">
@@ -247,23 +250,25 @@
                             <h1 class="text-white m-0">Reservar un asiento</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-5">
-                            <form method="POST">
+                            <form method="POST" action="pag_principal/reservar_asiento.php">
                                 <div class="form-group">
-                                    <input type="text" class="form-control border-0 p-4" placeholder="Su nombre" required="required" />
+                                    <input type="text" class="form-control border-0 p-4" placeholder="Su nombre" required="required" name="nombre"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Tu correo electronico" required="required" />
+                                    <input type="email" class="form-control border-0 p-4" placeholder="Tu correo electronico" required="required" name="correo" />
                                 </div>
                                 <div class="form-group">
-                                    <select class="custom-select border-0 px-4" style="height: 47px;">
+                                    <input type="text" class="form-control border-0 p-4" placeholder="Dibujo - Idiomas - Ciencia" required="required" name="clase">
+                                    <!-- <select class="custom-select border-0 px-4" style="height: 47px;">
                                         <option selected>Selecciona una clase</option>
                                         <option value="1">Dibujo</option>
                                         <option value="2">Idiomas</option>
                                         <option value="3">Ciencia</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                 <div>
-                                    <button class="btn btn-secondary btn-block border-0 py-3" type="submit">Reservar ahora</button>
+                                    <input type="submit" class="btn btn-secondary btn-block border-0 py-3" value="Reservar ahora" name="reservar">
+                                    <!-- <button class="btn btn-secondary btn-block border-0 py-3" type="submit">Reservar ahora</button> -->
                                 </div>
                             </form>
                         </div>

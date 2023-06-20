@@ -25,7 +25,7 @@
 </head>
 <body>
     <div class="container">
-
+    <br><br>
     <div class="container-fluid">
             <form action="" class="d-flex">
                 <br>
@@ -33,7 +33,7 @@
                 <br>
             </form>
         </div>
-
+    <br><br>
         <form action="" method="POST" enctype="multipart/form-data">
 
         <!-- Button trigger modal -->
