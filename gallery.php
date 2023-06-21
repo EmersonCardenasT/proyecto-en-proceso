@@ -17,11 +17,11 @@
     <!-- Header Start -->
     <div class="container-fluid bg-primary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-            <h3 class="display-3 font-weight-bold text-white">Gallery</h3>
+            <h3 class="display-3 font-weight-bold text-white">Galleria</h3>
             <div class="d-inline-flex text-white">
-                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <p class="m-0"><a class="text-white" href="index.php">Inicio</a></p>
                 <p class="m-0 px-2">/</p>
-                <p class="m-0">Gallery</p>
+                <p class="m-0">Galleria</p>
             </div>
         </div>
     </div>
@@ -32,13 +32,13 @@
     <div class="container-fluid pt-5 pb-3">
         <div class="container">
             <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Our Gallery</span></p>
-                <h1 class="mb-4">Our Kids School Gallery</h1>
+                <p class="section-title px-5"><span class="px-2">Registro constante de actividades</span></p>
+                <h1 class="mb-4">Nuestros hijos en el dia a dia</h1>
             </div>
             <div class="row">
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-flters">
-                        <li class="btn btn-outline-primary m-1 active"  data-filter="*">All</li>
+                        <li class="btn btn-outline-primary m-1 active"  data-filter="*">Todo</li>
                         <li class="btn btn-outline-primary m-1" data-filter=".first">Playing</li>
                         <li class="btn btn-outline-primary m-1" data-filter=".second">Drawing</li>
                         <li class="btn btn-outline-primary m-1" data-filter=".third">Reading</li>

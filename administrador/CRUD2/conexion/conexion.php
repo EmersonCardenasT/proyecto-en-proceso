@@ -6,7 +6,7 @@
 
     try{
         $pdo = new PDO($servidor, $usuario, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
-        //echo "conectado";
+        //echo "conectado a PDO";
 
     }catch(PDOException $e){
 

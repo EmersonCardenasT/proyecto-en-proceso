@@ -28,6 +28,8 @@
             <a href="<?php echo $url; ?>/administrador/inicio.php" class="nav-item nav-link active">Inicio</a>
             <a href="<?php echo $url; ?>/administrador/seccion/productos.php" class="nav-item nav-link active">Insertar Fotos</a>
             <a href="<?php echo $url; ?>/administrador/seccion/eventos.php" class="nav-item nav-link active">Agregar Proximos Eventos</a>
+            <a href="<?php echo $url; ?>/administrador/seccion/clases_populares.php" class="nav-item nav-link active">Clases populares</a>
+            <a href="<?php echo $url; ?>/administrador/seccion/tallerActividad.php" class="nav-item nav-link active">Talleres y actividades</a>
 
         </div>
         
