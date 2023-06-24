@@ -61,9 +61,9 @@
                 <?php foreach($listaLibros as $libro){ ?>
                 <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
                     <div class="position-relative overflow-hidden mb-2">
-                        <img src="./img/<?php echo $libro['imagen']; ?>" with="400" height="220" class="card-img-top">
+                        <img src="img/<?php echo $libro['imagen']; ?>" with="400" height="220" class="card-img-top">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="./img/<?php echo $libro['imagen']; ?>" data-lightbox="portfolio">
+                            <a href="img/<?php echo $libro['imagen']; ?>" data-lightbox="portfolio">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>

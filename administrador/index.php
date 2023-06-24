@@ -52,7 +52,7 @@
 
             <div class="text-center">
                <a class="font-italic isai5" href="">Olvidé mi contraseña</a>
-               <a class="font-italic isai5" href="Admin.php">Registrar Usuario Nuevo</a>
+               <a class="font-italic isai5" href="Admin.php">INICIAR COMO ADMINISTRADOR</a>
             </div>
             <input name="btningresar" class="btn" type="submit" value="INICIAR SESION">
             <a href="../index.php" name="btningresar" class="btn">VOLVER</a>

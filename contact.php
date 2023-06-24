@@ -30,27 +30,29 @@
                 <div class="col-lg-7 mb-5">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST" action="enviar_correo/enviarCorreo.php">
                             <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Tu nombre" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control" name="nombre" placeholder="Tu nombre" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Tu correo" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control" name="correo" placeholder="Tu correo" required="required" data-validation-required-message="Please enter your email" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Asunto" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control" name="asunto" placeholder="Asunto" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" rows="6" id="message" placeholder="Mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control" rows="6" name="mensaje" placeholder="Telefono y mensaje" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div>
-                                <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Enviar mensaje</button>
+                                <input type="submit" class="btn btn-primary py-2 px-4" id="sendMessageButton" value="Enviar mensaje">
                             </div>
                         </form>
+                        
                     </div>
                 </div>
                 <div class="col-lg-5 mb-5">

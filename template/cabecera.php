@@ -20,6 +20,10 @@
 
     <!-- Flaticon Font -->
 
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="icon" type="img/png" href="img/logo.png">
     <link href="css/style.css" rel="stylesheet">

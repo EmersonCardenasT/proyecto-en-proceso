@@ -36,7 +36,7 @@
 
                     </div>
 
-                    <p>Para poder registrar a un nuevo usuario primero se debe iniciar como Administrador</p>
+                    <p>Iniciar sesion como panel administrativo</p>
 
                     <form  method="POST" action="">
                         <div class="form-group mb-3">
