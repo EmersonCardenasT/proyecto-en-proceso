@@ -6,7 +6,7 @@ include("../template/cabecera.php");
 
 <?php
 
-require "code/code_clasesP.php";
+require "code/code_blog.php";
 
 ?>
 
@@ -26,7 +26,8 @@ require "code/code_clasesP.php";
 
 <body>
     <div class="container">
-        <h1 class="text-center">AGREGAR CURSOS ESPECIALES</h1>
+        <br>
+        <h1 class="text-center">ARTICLOS PARA EL BLOG</h1>
         <br>
         <!-- <div class="container-fluid">
             <form action="" class="d-flex">
@@ -40,7 +41,7 @@ require "code/code_clasesP.php";
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Agregar curso Especial
+                Agregar articulos para el Blog
             </button>
             <br><br>
             <!-- <a href="../controlador/controlador_cerrar_sesion.php" class="btn btn-success">CERRAR SESION</a>
@@ -87,27 +88,6 @@ require "code/code_clasesP.php";
 
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="">Edad</label>
-                                    <input type="text" class="form-control" name="txtEdad" value="<?php echo $txtEdad; ?>" placeholder="" id="txtEdad" require="">
-
-
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="">Sesiones</label>
-                                    <input type="text" class="form-control" name="txtSesiones" value="<?php echo $txtSesiones; ?>" placeholder="" id="txtSesiones" require="">
-
-
-                                </div>
-
-                                <label for="">Horario</label>
-                                <input type="text" class="form-control" name="txtHorario" value="<?php echo $txtHorario; ?>" placeholder="" id="txtHorario" require="">
-
-
-                                <label for="">Costo</label>
-                                <input type="text" class="form-control" name="txtCosto" value="<?php echo $txtCosto; ?>" placeholder="" id="txtCosto" require="">
-
                                 <br>
                             </div>
                         </div>
@@ -135,11 +115,7 @@ require "code/code_clasesP.php";
                         <th>Imagen</th>
                         <th>Titulo</th>
                         <th>Descripcion</th>
-                        <th>Edad</th>
-                        <th>Sesiones</th>
-                        <th>Horario</th>
-                        <th>Costo</th>
-                        <th>Acciones</th>
+                        <th>Accion</th>
                     </tr>
                 </thead>
                 <?php foreach ($listaEmpleados as $empleado) {  ?>
@@ -147,10 +123,6 @@ require "code/code_clasesP.php";
                         <td><img class="img-thumbnail" width="100px" src="img/<?php echo $empleado['foto']; ?>"></td>
                         <td><?php echo $empleado['titulo']; ?></td>
                         <td><?php echo $empleado['descripcion']; ?></td>
-                        <td><?php echo $empleado['edad']; ?></td>
-                        <td><?php echo $empleado['sesiones']; ?></td>
-                        <td><?php echo $empleado['horario']; ?></td>
-                        <td><?php echo $empleado['costo']; ?></td>
                         <td>
                             <form action="" method="POST">
                                 <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">

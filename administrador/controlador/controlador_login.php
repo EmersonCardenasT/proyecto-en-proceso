@@ -10,7 +10,7 @@
                 $_SESSION["id"] = $datos -> id;
                 $_SESSION["nombre"] = $datos -> nombres;
                 $_SESSION["apellidos"] = $datos -> apellidos;
-                header("Location: inicio.php");
+                header("Location:profesores/usuarios.php");
             }else{
                 echo "<div class='alert alert-danger'>Acceso denegado</div>";
             }

@@ -40,12 +40,12 @@
 
                     <form  method="POST" action="">
                         <div class="form-group mb-3">
-                            <label class="font-weight-bold"> DNI <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Ingresa tu correo" name="DNI">
+                            <label class="font-weight-bold"> Usuario <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Ingresa tu correo" name="usuario">
                         </div>
                         <div class="form-group mb-3">
                             <label class="font-weight-bold">Ingresa tu contraseña <span class="text-danger">*</span></label>
-                            <input type="password" class="form-control" placeholder="Ingresa tu contraseña" name="password">
+                            <input type="password" class="form-control" placeholder="Ingresa tu contraseña" name="contrasenia">
                         </div>
 
                         <?php

@@ -1,34 +1,30 @@
 <?php
-// session_start();
-// if(empty($_SESSION["id"])){
-//     header("location:../login.php");   
-// }
 
 include("../template/cabecera.php");
 
 ?>
 
 <?php
-require "code/code_registrar.php";
+require "code/code_equipo.php";
 ?>
+
+<h2>AGREGA FOTOS A LA SECCION DE PERSONAL ADMINISTRATIVO</h2>
 
 <div class="container">
 
-    <h1 class="text-center">REGISTRO DE PROFESORES</h1>
-    <br>
     <!-- <div class="container-fluid">
-            <form action="" class="d-flex">
-                <br>
-                <input type="text" class="form-control me-2 light-table-filter" data-table="table_id" placeholder="Buscar...">
-                <br>
-            </form>
+        <form action="" class="d-flex">
+            <br>
+            <input type="text" class="form-control me-2 light-table-filter" data-table="table_id" placeholder="Buscar...">
+            <br>
+        </form>
     </div> -->
     <br>
     <form action="" method="POST" enctype="multipart/form-data">
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Agregar Registro
+            Agregar Equipo de Trabajo
         </button>
 
         <!-- <a href="../controlador/controlador_cerrar_sesion.php" class="btn btn-success">CERRAR SESION</a>
@@ -87,19 +83,6 @@ require "code/code_registrar.php";
                             <label for="">Especialidad</label>
                             <input type="text" class="form-control" name="txtEspecialidad" value="<?php echo $txtEspecialidad; ?>" placeholder="" id="txtEspecialidad" require="">
 
-                            <div class="form-group col-md-6">
-                                <label for="">Contraseña</label>
-                                <input type="password" class="form-control" name="txtContraseña" value="<?php echo $txtContraseña; ?>" placeholder="" id="txtContraseña" require="">
-
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="">Confirmar contraseña</label>
-                                <input type="password" class="form-control" name="txtConfirmarContraseña" value="<?php echo $txtConfirmarContraseña; ?>" placeholder="" id="txtConfirmarContraseña" require="">
-
-
-                            </div>
-
 
                             <label for="">Foto</label>
                             <input type="file" class="form-control" accept="image/*" value="<?php echo $txtFoto; ?>" name="txtFoto" placeholder="" id="txtFoto" require="">
@@ -141,7 +124,7 @@ require "code/code_registrar.php";
                     <th>Apellidos</th>
                     <th>Telefono</th>
                     <th>Correo</th>
-                    <th>Especialidad</th>
+                    <th>Cargo</th>
                     <th>Foto</th>
                     <th>Acciones</th>
                 </tr>
@@ -153,7 +136,7 @@ require "code/code_registrar.php";
                     <td><?php echo $empleado['apellidos']; ?></td>
                     <td><?php echo $empleado['telefono']; ?></td>
                     <td><?php echo $empleado['correo']; ?></td>
-                    <td><?php echo $empleado['curso']; ?></td>
+                    <td><?php echo $empleado['especialidad']; ?></td>
                     <td><img class="img-thumbnail" width="100px" src="img/<?php echo $empleado['foto']; ?>"></td>
                     <td>
 
@@ -176,7 +159,6 @@ require "code/code_registrar.php";
         </script>
     <?php } ?>
 
-
     <script>
         var tabla = document.querySelector("#tabla");
 
@@ -185,6 +167,7 @@ require "code/code_registrar.php";
             perPageSelect: [4, 8, 12, 16]
         });
     </script>
+
     <?php
 
     include("../template/pie.php");

@@ -132,9 +132,11 @@
     $listaLibros = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+<div class="container-fluid">
+    <h2 class="text-center">AGREGAR FOTOS A LA SECCION DE GALERIA GALERIA</h2>
+</div>
+<br><br><br>
 <div class="col-md-5">
-
         <div class="card">
             <div class="card-header">
                 Fotos del colegio
@@ -180,7 +182,7 @@
 
 <div class="col-md-7">
     
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="tabla">
         <thead>
             <tr>
                 <th>ID</th>
@@ -220,6 +222,14 @@
 
 </div>
 
+<script>
+    var tabla = document.querySelector("#tabla");
+
+    var dataTable = new DataTable(tabla,{
+        perPage:4,
+        perPageSelect:[4,8,12,16]
+    });
+</script>
 
 <?php
 

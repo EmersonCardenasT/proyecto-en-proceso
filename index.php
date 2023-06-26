@@ -11,12 +11,18 @@
     $sentenciaSQL = $conexion->prepare("SELECT * FROM talleres");
     $sentenciaSQL -> execute();
     $listaLibros2 = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
+
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM registro_profesores");
+    $sentenciaSQL -> execute();
+    $listaLibros3 = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC); 
     
-    
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM blog");
+    $sentenciaSQL -> execute();
+    $listaLibros4 = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC); 
 ?>
 
     <!-- Header Start -->
-    <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+    <div class="container-fluid bg-primary px-0 px-md-5 mb-5 ">
         <div class="row align-items-center px-3">
             <div class="col-lg-6 text-center text-lg-left">
                 <h4 class="text-white mb-4 mt-5 mt-lg-0">Colegio Cristiano</h4>
@@ -27,7 +33,7 @@
                 <a href="" class="btn btn-secondary mt-1 py-3 px-5">Leer mas</a>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
-                <img class="img-fluid mt-5" src="img/banner.jpg" alt="" height="700px" width="700px">
+                <img class="img-fluid mt-5" src="img/banner.png" alt="" height="700px" width="700px">
             </div>
         </div>
     </div>
@@ -100,7 +106,7 @@
         <div class="container">
             <div class="text-center pb-2">
                 <p class="section-title px-5"><span class="px-2">Clases populares</span></p>
-                <h1 class="mb-4">Clases para tus hijos</h1>
+                <h1 class="mb-4">Clases de verano</h1>
             </div>
             <div class="row">
             <?php foreach($listaLibros as $libro){ ?>
@@ -170,16 +176,13 @@
                                     <input type="text" class="form-control border-0 p-4" placeholder="Su nombre" required="required" name="nombre"/>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control border-0 p-4" placeholder="Tu correo electronico" required="required" name="correo" />
+                                    <input type="text" class="form-control border-0 p-4" placeholder="Celular" required="required" name="celular" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control border-0 p-4" placeholder="Tu correo electronico(opcional)" name="correo" />
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control border-0 p-4" placeholder="Dibujo - Idiomas - Ciencia" required="required" name="clase">
-                                    <!-- <select class="custom-select border-0 px-4" style="height: 47px;">
-                                        <option selected>Selecciona una clase</option>
-                                        <option value="1">Dibujo</option>
-                                        <option value="2">Idiomas</option>
-                                        <option value="3">Ciencia</option>
-                                    </select> -->
                                 </div>
                                 <div>
                                     <input type="submit" class="btn btn-secondary btn-block border-0 py-3" value="Reservar ahora" name="reservar">
@@ -203,9 +206,10 @@
                 <h1 class="mb-4">Conoce a nuestros maestros</h1>
             </div>
             <div class="row">
+            <?php foreach($listaLibros3 as $libro){ ?>
                 <div class="col-md-6 col-lg-3 text-center team mb-5">
                     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="" >
+                        <img class="img-fluid w-100" src="administrador/seccion/img/<?php echo $libro['foto']; ?>" alt="" >
                         <div
                             class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
                             <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
@@ -216,57 +220,10 @@
                                 href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Julia Smith</h4>
-                    <i>Profesor de musica</i>
+                    <h4><?php echo $libro['nombre']; ?></h4>
+                    <i><?php echo $libro['correo']; ?></i>
                 </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Jhon Doe</h4>
-                    <i>Profesor de idiomas</i>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Mollie Ross</h4>
-                    <i>Profesor de baile</i>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Donald John</h4>
-                    <i>Profesor de arte</i>
-                </div>
+            <?php } ?>
             </div>
         </div>
     </div>
@@ -347,51 +304,23 @@
                 <h1 class="mb-4">Ultimos articulos del Blog</h1>
             </div>
             <div class="row pb-3">
+            <?php foreach($listaLibros4 as $libro){ ?>
                 <div class="col-lg-4 mb-4">
                     <div class="card border-0 shadow-sm mb-2">
-                        <img class="card-img-top mb-2" src="img/blog-1.jpg" alt="">
+                        <img class="card-img-top mb-2" src="administrador/seccion/img/<?php echo $libro['foto']; ?>" alt="">
                         <div class="card-body bg-light text-center p-4">
-                            <h4 class="">Innovacion constante</h4>
-                            <div class="d-flex justify-content-center mb-3">
+                            <h4 class=""><?php echo $libro['titulo']; ?></h4>
+                            <!-- <div class="d-flex justify-content-center mb-3">
                                 <small class="mr-3"><i class="fa fa-user text-primary"></i> Admin</small>
                                 <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
                                 <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
-                            </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
+                            </div> -->
+                            <p><?php echo $libro['descripcion']; ?></p>
                             <a href="" class="btn btn-primary px-4 mx-auto my-2">Leer mas</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card border-0 shadow-sm mb-2">
-                        <img class="card-img-top mb-2" src="img/blog-2.jpg" alt="">
-                        <div class="card-body bg-light text-center p-4">
-                            <h4 class="">Trabajo en equipo</h4>
-                            <div class="d-flex justify-content-center mb-3">
-                                <small class="mr-3"><i class="fa fa-user text-primary"></i> Admin</small>
-                                <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
-                                <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
-                            </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
-                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Leer mas</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card border-0 shadow-sm mb-2">
-                        <img class="card-img-top mb-2" src="img/blog-3.jpg" alt="">
-                        <div class="card-body bg-light text-center p-4">
-                            <h4 class="">Despertanto la creatividad</h4>
-                            <div class="d-flex justify-content-center mb-3">
-                                <small class="mr-3"><i class="fa fa-user text-primary"></i> Admin</small>
-                                <small class="mr-3"><i class="fa fa-folder text-primary"></i> Web Design</small>
-                                <small class="mr-3"><i class="fa fa-comments text-primary"></i> 15</small>
-                            </div>
-                            <p>Sed kasd sea sed at elitr sed ipsum justo, sit nonumy diam eirmod, duo et sed sit eirmod kasd clita tempor dolor stet lorem. Tempor ipsum justo amet stet...</p>
-                            <a href="" class="btn btn-primary px-4 mx-auto my-2">Leer mas</a>
-                        </div>
-                    </div>
-                </div>
+            <?php } ?>  
             </div>
         </div>
     </div>

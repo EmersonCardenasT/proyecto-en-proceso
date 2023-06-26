@@ -23,13 +23,19 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    
+
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="icon" type="img/png" href="img/logo.png">
     <link href="css/style.css" rel="stylesheet">
+    <!-- DAR ANIMACION A LA PAGINA WEB -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="hidden">
+    <div class="centrado" id="onload">
+        <div class="lds-dual-ring"></div>
+    </div>
+
     <!-- Navbar Start -->
     <div class="container-fluid bg-light position-relative shadow">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
@@ -44,20 +50,23 @@
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
                     <a href="index.php" class="nav-item nav-link active">Inicio</a>
                     <a href="about.php" class="nav-item nav-link">Nosotros</a>
-                    <a href="class.php" class="nav-item nav-link">Clases</a>
+                    <a href="class.php" class="nav-item nav-link">Clases de Verano</a>
                     <a href="team.php" class="nav-item nav-link">Profesores</a>
                     <a href="gallery.php" class="nav-item nav-link">Galeria</a>
+
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Niveles</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="blog.php" class="dropdown-item">Blog Grid</a>
-                            <a href="single.php" class="dropdown-item">Blog Detail</a>
+                            <a href="inicial.php" class="dropdown-item">Educacion Inicial</a>
+                            <a href="primaria.php" class="dropdown-item">Educacion Primaria</a>
+                            <a href="secundaria.php" class="dropdown-item">Educacion Secundaria</a>
                         </div>
                     </div>
-                    <a href="contact.php" class="nav-item nav-link">Contact</a>
+
+                    <a href="contact.php" class="nav-item nav-link">Contacto</a>
                 </div>
                 <a href="administrador/index.php" class="btn btn-primary px-4">
-                <i class="bi bi-person-square"></i> Iniciar</a>
+                    <i class="bi bi-person-square"></i> Iniciar</a>
             </div>
         </nav>
     </div>

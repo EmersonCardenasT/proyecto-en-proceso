@@ -4,12 +4,13 @@
 
     if(isset($_POST['reservar'])){
         $nombre = $_POST['nombre'];
+        $celular = $_POST['celular'];
         $correo = $_POST['correo'];
         $clase = $_POST['clase'];
 
         if(!empty($nombre) && !empty($correo) && !empty($clase)){
 
-            $sql = ("INSERT INTO reserva_asientos(id, nombre, correo, clase) VALUES (NULL, '$nombre', '$correo', '$clase')");
+            $sql = ("INSERT INTO reserva_asientos(id, nombre, celular, correo, clase) VALUES (NULL, '$nombre', '$celular', '$correo', '$clase')");
 
             if(mysqli_query($conexion, $sql)){
                 echo'<script type="text/javascript">

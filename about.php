@@ -4,6 +4,19 @@
 
 ?>
 
+<?php 
+    include("administrador/config/PDO.php"); 
+
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM talleres");
+    $sentenciaSQL -> execute();
+    $listaLibros2 = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
+
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM equipo");
+    $sentenciaSQL -> execute();
+    $listaLibros5 = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC); 
+
+?>
+
 
     <!-- Header Start -->
     <div class="container-fluid bg-primary mb-5">
@@ -54,65 +67,27 @@
     </div>
     <!-- About End -->
 
+    <!-- Titulo 01 -->
+    <div class="text-center pb-2">
+        <p class="section-title px-5"><span class="px-2">NUESTRAS FORTALEZAS</span></p>
+        <h1 class="mb-4">Actividades - Talleres - Beneficios</h1>
+    </div>
 
     <!-- Facilities Start -->
     <div class="container-fluid pt-5">
         <div class="container pb-3">
             <div class="row">
+            <?php foreach($listaLibros2 as $libro){ ?>
                 <div class="col-lg-4 col-md-6 pb-1">
                     <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
                         <i class="flaticon-050-fence h1 font-weight-normal text-primary mb-3"></i>
                         <div class="pl-4">
-                            <h4>Juego en grupo</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
+                            <h4><?php echo $libro['titulo']; ?></h4>
+                            <p class="m-0"><?php echo $libro['descripcion']; ?></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 pb-1">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-022-drum h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Musica y danza</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-030-crayons h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Arte y diseño</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-017-toy-car h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Seguridad en todo momento</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-025-sandwich h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Alimentacion saludable</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 pb-1">
-                    <div class="d-flex bg-light shadow-sm border-top rounded mb-4" style="padding: 30px;">
-                        <i class="flaticon-047-backpack h1 font-weight-normal text-primary mb-3"></i>
-                        <div class="pl-4">
-                            <h4>Paseos educativos</h4>
-                            <p class="m-0">Kasd labore kasd et dolor est rebum dolor ut, clita dolor vero lorem amet elitr vero...</p>
-                        </div>
-                    </div>
-                </div>
+            <?php } ?>
             </div>
         </div>
     </div>
@@ -123,13 +98,14 @@
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Nuestros profesores</span></p>
-                <h1 class="mb-4">Interactua con nuestros docentes de mayor prestigio</h1>
+                <p class="section-title px-5"><span class="px-2">Nuestro Equipo de Trabajo</span></p>
+                <h1 class="mb-4">Seccion de personal Administrativo</h1>
             </div>
             <div class="row">
+            <?php foreach($listaLibros5 as $libro){ ?>
                 <div class="col-md-6 col-lg-3 text-center team mb-5">
                     <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-1.jpg" alt="" >
+                        <img class="img-fluid w-100" src="administrador/seccion/img/<?php echo $libro['foto']; ?>" alt="" >
                         <div
                             class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
                             <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
@@ -140,57 +116,10 @@
                                 href="#"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <h4>Julia Smith</h4>
-                    <i>Music Teacher</i>
+                    <h4><?php echo $libro['nombre']; ?></h4>
+                    <i><?php echo $libro['correo']; ?></i>
                 </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Jhon Doe</h4>
-                    <i>Language Teacher</i>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Mollie Ross</h4>
-                    <i>Dance Teacher</i>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center team mb-5">
-                    <div class="position-relative overflow-hidden mb-4" style="border-radius: 100%;">
-                        <img class="img-fluid w-100" src="img/team-4.jpg" alt="" >
-                        <div
-                            class="team-social d-flex align-items-center justify-content-center w-100 h-100 position-absolute">
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light text-center mr-2 px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light text-center px-0" style="width: 38px; height: 38px;"
-                                href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <h4>Donald John</h4>
-                    <i>Art Teacher</i>
-                </div>
+            <?php } ?>
             </div>
         </div>
     </div>
