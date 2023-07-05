@@ -19,20 +19,21 @@
        <div class="row no-gutters bg-dark">
             <div class="col-xl-5 col-lg-12 register-bg">
                 <div class="position-absolute testiomonial p-4">
-                    <h3 class="font-weight-bold text-light">La siguiente revolución digital.</h3>
-                    <p class="lead text-light">La nueva etapa de la revolución digital se aproxima.</p>
+                    <h3 class="font-weight-bold text-light">¡Cada paso cuenta hacia un futuro Brillante!.</h3>
+                    <p class="lead text-light">Solo unidos hacemos la diferencia.</p>
                 </div>
             </div>
             <div class="col-xl-7 col-lg-12 d-flex">
                 <div class="container align-self-center p-6">
-                    <h1 class="font-weight-bold">Iniciar Sesion como Administrador</h1>
+                    <h1 class="text-center">I.E.P. EMANUEL</h1>
+                    <h1 class="font-weight-bold text-center">Iniciar Sesion como Administrador</h1>
                     
                     <div class="form-group">
 
-                        <button class="btn btn-outline-dark d-inline-block text-light mr-2 mb-3">
-                            <i class="icon ion-logo-google lead align-middle mr-2"></i>Google</button>
-                        <button class="btn btn-outline-dark d-inline-block text-light mb-3">
-                            <i class="icon ion-logo-facebook lead align-middle mr-2"></i>Facebook</button>
+                        <a href=""><button class="btn btn-outline-dark d-inline-block text-light mr-2 mb-3">
+                            <i class="icon ion-logo-whatsapp lead align-middle mr-2"></i>Whatsapp</button></a>
+                        <a href="https://www.facebook.com/EstudiaYTriunfa" target="_blank"><button class="btn btn-outline-dark d-inline-block text-light mb-3">
+                            <i class="icon ion-logo-facebook lead align-middle mr-2"></i>Facebook</button></a>
 
                     </div>
 

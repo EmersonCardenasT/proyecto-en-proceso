@@ -46,32 +46,42 @@
                 break;
             }
 
-            $sentencia = $pdo -> prepare("INSERT INTO registro_profesores(DNI, nombre, apellidos, telefono, correo, curso, foto, contrasenia, confirmarContrasenia) 
-            VALUES (:DNI, :nombre, :apellidos, :telefono, :correo, :curso, :foto, :contrasenia, :confirmarContrasenia)");
+            if($txtContraseña == $txtConfirmarContraseña){
 
-            $sentencia->bindParam(':DNI', $txtDNI);
-            $sentencia->bindParam(':nombre', $txtNombre);
-            $sentencia->bindParam(':apellidos', $txtApellidos);
-            $sentencia->bindParam(':telefono', $txtTelefono);
-            $sentencia->bindParam(':correo', $txtCorreo);
-            $sentencia->bindParam(':curso', $txtEspecialidad);
+                $sentencia = $pdo -> prepare("INSERT INTO registro_profesores(DNI, nombre, apellidos, telefono, correo, curso, foto, contrasenia, confirmarContrasenia) 
+                VALUES (:DNI, :nombre, :apellidos, :telefono, :correo, :curso, :foto, :contrasenia, :confirmarContrasenia)");
+    
+                $sentencia->bindParam(':DNI', $txtDNI);
+                $sentencia->bindParam(':nombre', $txtNombre);
+                $sentencia->bindParam(':apellidos', $txtApellidos);
+                $sentencia->bindParam(':telefono', $txtTelefono);
+                $sentencia->bindParam(':correo', $txtCorreo);
+                $sentencia->bindParam(':curso', $txtEspecialidad);
+    
+                $Fecha = new DateTime();
+                $nombreArchivo = ($txtFoto != "")?$Fecha -> getTimestamp()."_".$_FILES['txtFoto']['name']:"imagen.jpg";
+    
+                $tmpFoto = $_FILES["txtFoto"]['tmp_name'];
+    
+                if($tmpFoto != ""){
+                    move_uploaded_file($tmpFoto, "img/".$nombreArchivo);
+    
+                }
+    
+                $sentencia->bindParam(':foto', $nombreArchivo);
+                $sentencia->bindParam(':contrasenia', $txtContraseña);
+                $sentencia->bindParam(':confirmarContrasenia', $txtConfirmarContraseña);
+                $sentencia->execute();
+    
+                header("Location: eventos.php");
 
-            $Fecha = new DateTime();
-            $nombreArchivo = ($txtFoto != "")?$Fecha -> getTimestamp()."_".$_FILES['txtFoto']['name']:"imagen.jpg";
-
-            $tmpFoto = $_FILES["txtFoto"]['tmp_name'];
-
-            if($tmpFoto != ""){
-                move_uploaded_file($tmpFoto, "img/".$nombreArchivo);
-
+            }else{
+                echo "<script>alert('Fallo de Registor, debes ingresar la misma contraseña');
+                window.open('eventos.php', '_self');
+                </script>";
+    
             }
 
-            $sentencia->bindParam(':foto', $nombreArchivo);
-            $sentencia->bindParam(':contrasenia', $txtContraseña);
-            $sentencia->bindParam(':confirmarContrasenia', $txtConfirmarContraseña);
-            $sentencia->execute();
-
-            header("Location: eventos.php");
 
         break;
 

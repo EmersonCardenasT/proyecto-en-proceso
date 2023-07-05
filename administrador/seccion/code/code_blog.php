@@ -35,16 +35,19 @@
             $sentencia->bindParam(':titulo', $txtTitulo);
             $sentencia->bindParam(':descripcion', $txtDescripcion);
             $sentencia->execute(); 
-            
-            header("Location: blog.php");
 
+            echo '<script>
+                alert("Registro realizado correctamente");
+                location.href ="blog.php";
+                </script>';
+                
             break;
 
         case "btn2Modificar":
 
             $sentencia = $pdo -> prepare("UPDATE blog SET 
             titulo=:titulo, 
-            descripcion=:descripcion, WHERE id=:id"); 
+            descripcion=:descripcion WHERE id=:id"); 
 
             $sentencia->bindParam(':titulo', $txtTitulo);
             $sentencia->bindParam(':descripcion', $txtDescripcion);
@@ -138,4 +141,4 @@
         $sentencia -> execute();
         $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 
-?>
+        

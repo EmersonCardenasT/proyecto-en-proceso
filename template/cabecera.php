@@ -9,7 +9,8 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="shortcut icon" href="img/colegio.png">
+    <!-- <link href="img/colegio.ico" rel="icon"> -->
 
     <!-- Google Web Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -17,6 +18,7 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
 
     <!-- Flaticon Font -->
 
@@ -40,7 +42,7 @@
     <div class="container-fluid bg-light position-relative shadow">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
             <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
-                <i class="bi bi-book-fill"></i>
+                <i class="bi bi-journal-medical"></i>
                 <span class="text-primary">I.E.P. EMANUEL</span>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -49,7 +51,7 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
                     <a href="index.php" class="nav-item nav-link active">Inicio</a>
-                    <a href="about.php" class="nav-item nav-link">Nosotros</a>
+                    <a href="about.php" class="nav-item nav-link">Acerca de Nosotros</a>
                     <a href="class.php" class="nav-item nav-link">Clases de Verano</a>
                     <a href="team.php" class="nav-item nav-link">Profesores</a>
                     <a href="gallery.php" class="nav-item nav-link">Galeria</a>
@@ -65,7 +67,7 @@
 
                     <a href="contact.php" class="nav-item nav-link">Contacto</a>
                 </div>
-                <a href="administrador/index.php" class="btn btn-primary px-4">
+                <a href="administrador/admin.php" class="btn btn-primary px-4">
                     <i class="bi bi-person-square"></i> Iniciar</a>
             </div>
         </nav>

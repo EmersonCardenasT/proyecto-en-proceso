@@ -56,7 +56,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 mb-5">
-                    <p>Labore sea amet kasd diam justo amet ut vero justo. Ipsum ut et kasd duo sit, ipsum sea et erat est dolore, magna ipsum et magna elitr. Accusam accusam lorem magna, eos et sed eirmod dolor est eirmod eirmod amet.</p>
+                    <p>Para mayor informacion puedes enviarnos un correo electronico y con gusto recibiremos su mensaje, 
+                        tambien tienes otras opciones como escribirnos al Whatsapp, nuestra direccion, y el horario de atencion.</p>
                     <div class="d-flex">
                         <i class="fa fa-map-marker-alt d-inline-flex align-items-center justify-content-center bg-primary text-secondary rounded-circle" style="width: 45px; height: 45px;"></i>
                         <div class="pl-3">

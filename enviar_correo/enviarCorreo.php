@@ -42,8 +42,9 @@ try {
     $mail->send();
     echo '<script>
         alert("El mensaje se envio correctamente");
-        window.history.go(-1);
+        window.open("../contact.php", "_self");
         </script>';
+
         
 
 } catch (Exception $e) {

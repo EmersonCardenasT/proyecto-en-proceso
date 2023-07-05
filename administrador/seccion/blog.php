@@ -10,7 +10,7 @@ require "code/code_blog.php";
 
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,7 +22,10 @@ require "code/code_blog.php";
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-</head>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head> -->
 
 <body>
     <div class="container">
@@ -112,10 +115,10 @@ require "code/code_blog.php";
             <table class="table table-hover table-bordered light-table-filter table_id" id="tabla">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Imagen</th>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                        <th>Accion</th>
+                        <th width="10%">Imagen</th>
+                        <th width="20%">Titulo</th>
+                        <th width="60%">Descripcion</th>
+                        <th width="10%">Accion</th>
                     </tr>
                 </thead>
                 <?php foreach ($listaEmpleados as $empleado) {  ?>
@@ -126,8 +129,12 @@ require "code/code_blog.php";
                         <td>
                             <form action="" method="POST">
                                 <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">
-                                <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
-                                <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary">
+                                <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-small btn-danger" onclick="return ConfirmDelete()"><i class="fa-sharp fa-solid fa-trash"></i></button>
+
+                                <button value="Seleccionar" type="submit" name="accion" class=" btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <!-- <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary"> -->
+
+
                             </form>
 
                         </td>
@@ -148,14 +155,24 @@ require "code/code_blog.php";
 
             var dataTable = new DataTable(tabla, {
                 perPage: 4,
-                perPageSelect: [4, 8, 12, 16]
+                perPageSelect: [4, 8, 12, 16],
+                labels: {
+                    placeholder: "Buscar:",
+                    perPage: "{select} Registros por pagina",
+                    noRows: "Registro no Encontrado",
+                    info: "Mostrando registros del {start} al {end} de {rows} Registros"
+                }
             });
         </script>
 
+
+
     </div>
 
-    <script src="js/buscador.js"></script>
 
 </body>
+<?php
 
-</html>
+include("../template/pie.php");
+
+?>

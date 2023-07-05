@@ -10,19 +10,6 @@ require "code/code_clasesP.php";
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-</head>
 
 <body>
     <div class="container">
@@ -154,8 +141,9 @@ require "code/code_clasesP.php";
                         <td>
                             <form action="" method="POST">
                                 <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">
-                                <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
-                                <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary">
+                                <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-danger" onclick="return ConfirmDelete()"><i class="fa-sharp fa-solid fa-trash"></i></button>
+                                <button value="Seleccionar" type="submit" name="accion" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <!-- <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary"> -->
                             </form>
 
                         </td>
@@ -176,7 +164,13 @@ require "code/code_clasesP.php";
 
             var dataTable = new DataTable(tabla, {
                 perPage: 4,
-                perPageSelect: [4, 8, 12, 16]
+                perPageSelect: [4, 8, 12, 16],
+                labels: {
+                    placeholder: "Buscar:",
+                    perPage: "{select} Registros por pagina",
+                    noRows: "Registro no Encontrado",
+                    info: "Mostrando registros del {start} al {end} de {rows} Registros"
+                }
             });
         </script>
 
@@ -186,4 +180,8 @@ require "code/code_clasesP.php";
 
 </body>
 
-</html>
+<?php
+
+include("../template/pie.php");
+
+?>

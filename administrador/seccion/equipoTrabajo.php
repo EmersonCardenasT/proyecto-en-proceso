@@ -142,8 +142,10 @@ require "code/code_equipo.php";
 
                         <form action="" method="POST">
                             <input type="hidden" name="txtID" value="<?php echo $empleado['id']; ?>">
-                            <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-danger">Eliminar</button>
-                            <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary">
+                            <button value="btn3Eliminar" type="submit" name="accion" class="btn btn-danger" onclick="return ConfirmDelete()"><i class="fa-sharp fa-solid fa-trash"></i></button>
+                            <button value="Seleccionar" type="submit" name="accion" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+
+                            <!-- <input type="submit" value="Seleccionar" name="accion" class="btn btn-primary"> -->
                         </form>
 
                     </td>
@@ -163,8 +165,14 @@ require "code/code_equipo.php";
         var tabla = document.querySelector("#tabla");
 
         var dataTable = new DataTable(tabla, {
-            perPage: 4,
-            perPageSelect: [4, 8, 12, 16]
+            perPage:4,
+            perPageSelect:[4, 8, 12,16],
+            labels: {
+            placeholder: "Buscar:",
+            perPage: "{select} Registros por pagina",
+            noRows: "Registro no Encontrado",
+			info: "Mostrando registros del {start} al {end} de {rows} Registros"
+		}
         });
     </script>
 

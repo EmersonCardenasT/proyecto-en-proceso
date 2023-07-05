@@ -9,9 +9,10 @@
             $sql = $conexion -> query("select * from administrador where usuario='$usuario' and contrasenia='$contrasenia'");
             if($datos = $sql -> fetch_object()){
                 $_SESSION["id"] = $datos -> id;
-                $_SESSION["nombre"] = $datos -> nombres;
+                $_SESSION["nombre"] = $datos -> nombre;
                 $_SESSION["apellido"] = $datos -> apellido;
-                header("Location: inicio.php");
+                header("Location: seccion/inicio.php");
+
             }else{
                 echo "<div class='alert alert-danger'>Acceso denegado</div>";
             }

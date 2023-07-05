@@ -2,9 +2,11 @@
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        <svg class="bi" width="30" height="24">
+          <use xlink:href="#bootstrap" />
+        </svg>
       </a>
-      <span class="mb-3 mb-md-0 text-muted">ECardenas Torres  &copy; 2023-929544215</span>
+      <span class="mb-3 mb-md-0 text-muted">ECardenas Torres &copy; 2023-929544215</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -15,11 +17,12 @@
   </footer>
 </div>
 
-        <script src="js/buscador.js"></script>
-        </div>
 
-        </div>
-        <script src="js/main.js"></script>
+</div>
+
+</div>
+<script src="js/main.js"></script>
+<script src="js/eliminar.js"></script>
 
 </body>
 

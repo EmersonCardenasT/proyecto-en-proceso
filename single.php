@@ -232,7 +232,7 @@
                     </div>
                 </div>
 
-                <!-- Single Image -->
+                Single Image
                 <div class="mb-5">
                     <img src="img/blog-2.jpg" alt="" class="img-fluid rounded">
                 </div>
