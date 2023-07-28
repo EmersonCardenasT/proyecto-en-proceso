@@ -1,6 +1,11 @@
 <?php
 
-include("../template/cabecera.php");
+session_start();
+    if(empty($_SESSION["id"])){
+        header("location:../admin.php");   
+    }
+
+include("template/cabecera.php");
 
 ?>
 
@@ -182,6 +187,6 @@ require "code/code_clasesP.php";
 
 <?php
 
-include("../template/pie.php");
+include("template/pie.php");
 
 ?>

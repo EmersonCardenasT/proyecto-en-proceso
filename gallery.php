@@ -59,7 +59,7 @@
                     </div>
                     <div class="card-body">
                             <h4 class="card-title"><?php echo $libro['nombre']; ?></h4>
-                            <a href="" class="btn btn-primary">Ver mas</a>
+                            <!-- <a href="" class="btn btn-primary">Ver mas</a> -->
                     </div>
                 </div>
                 <?php } ?>

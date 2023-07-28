@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/colegio.png">
@@ -18,7 +19,7 @@
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Flaticon Font -->
 
@@ -29,8 +30,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link rel="icon" type="img/png" href="img/logo.png">
     <link href="css/style.css" rel="stylesheet">
-    <!-- DAR ANIMACION A LA PAGINA WEB -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/slider.css">
+    
 </head>
 
 <body class="hidden">
@@ -56,13 +57,24 @@
                     <a href="team.php" class="nav-item nav-link">Profesores</a>
                     <a href="gallery.php" class="nav-item nav-link">Galeria</a>
 
-                    <div class="nav-item dropdown">
+                    <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Niveles</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="inicial.php" class="dropdown-item">Educacion Inicial</a>
                             <a href="primaria.php" class="dropdown-item">Educacion Primaria</a>
                             <a href="secundaria.php" class="dropdown-item">Educacion Secundaria</a>
                         </div>
+                    </div> -->
+
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Niveles
+                        </a>
+                        <ul class="dropdown-menu rounded-0 m-0" aria-labelledby="dropdownMenuButton1">
+                            <li><a href="inicial.php" class="dropdown-item">Educacion Inicial</a></li>
+                            <li><a href="primaria.php" class="dropdown-item">Educacion Primaria</a></li>
+                            <li><a href="secundaria.php" class="dropdown-item">Educacion Secundaria</a></li>
+                        </ul>
                     </div>
 
                     <a href="contact.php" class="nav-item nav-link">Contacto</a>

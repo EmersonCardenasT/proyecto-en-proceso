@@ -22,6 +22,11 @@
                 echo "Error";
             }
 
+        }else{
+            echo'<script type="text/javascript">
+                alert("Error, no puedes mandar Datos vacios.");
+                window.location.href="../index.php";
+                </script>';
         }
     }
 

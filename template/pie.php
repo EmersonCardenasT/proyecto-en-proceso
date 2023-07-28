@@ -1,3 +1,73 @@
+<div id="formulario-container" class="oculto">
+    <div id="screen">
+        <div id="header">ManuBoot
+            <img src="img/icono.png" alt="Imagen" id="profiles-image">
+        </div>
+        <div id="messageDisplaySection">
+            <!-- bot messages -->
+            <!-- <div class="chat botMessages">Hello there, how can I help you?</div> -->
+
+            <!-- usersMessages -->
+            <!-- <div id="messagesContainer">
+          <div class="chat usersMessages">I need your help to build a website.</div>
+      </div> -->
+        </div>
+        <!-- messages input field -->
+        <div id="userInput">
+            <input type="text" name="messages" id="messages" autocomplete="OFF" placeholder="Escribe tu mensaje aquí."
+                required>
+            <input type="submit" value="Send" id="send" name="send">
+        </div>
+    </div>
+</div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<!-- Jquery Start -->
+<script>
+    $(document).ready(function () {
+        $("#messages").on("keyup", function () {
+            if ($("#messages").val()) {
+                $("#send").css("display", "block");
+            } else {
+                $("#send").css("display", "none");
+            }
+        });
+    });
+
+    // when send button clicked
+    $("#send").on("click", function (e) {
+        $userMessage = $("#messages").val();
+        $appendUserMessage = '<div class="chat usersMessages">' + $userMessage + '</div>';
+        $("#messageDisplaySection").append($appendUserMessage);
+
+        // ajax start
+        $.ajax({
+            url: "bot.php",
+            type: "POST",
+            // sending data
+            data: { messageValue: $userMessage },
+            // response text
+            success: function (data) {
+                // show response
+                $appendBotResponse = '<div id="messagesContainer"><div class="chat botMessages">' + data + '</div></div>';
+                $("#messageDisplaySection").append($appendBotResponse);
+            }
+        });
+
+        $("#messages").val("");
+        $("#send").css("display", "none");
+    });
+</script>
+
+<a href="#" id="boton-flotante" onclick="return false;">🤖</a>
+
+
+<script src="js/formulario.js"></script>
+<!-- Blog End -->
+ 
  <!-- Footer Start -->
  <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5">
      <div class="row pt-5">
@@ -78,10 +148,10 @@
  <!-- Back to Top -->
  <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  <!-- JavaScript Libraries -->
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+ <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script> -->
  <script src="lib/easing/easing.min.js"></script>
  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
  <script src="lib/isotope/isotope.pkgd.min.js"></script>
@@ -94,10 +164,7 @@
  <!-- Template Javascript -->
  <script src="js/main.js"></script>
  <script src="js/codigo.js"></script>
- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
- <script>
-     AOS.init();
- </script>
+
 
  </body>
 

@@ -1,13 +1,11 @@
 <?php
+
 session_start();
-if (empty($_SESSION["id"])) {
-    header("location:index.php");
-}
-?>
+    if(empty($_SESSION["id"])){
+        header("location:../admin.php");   
+    }
 
-<?php
-
-include("../template/cabecera.php");
+include("template/cabecera.php");
 
 ?>
 
@@ -239,6 +237,6 @@ $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
-include("../template/pie.php");
+include("template/pie.php");
 
 ?>

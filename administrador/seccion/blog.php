@@ -1,6 +1,10 @@
 <?php
+session_start();
+if(empty($_SESSION["id"])){
+    header("location:../admin.php");   
+}
 
-include("../template/cabecera.php");
+include("template/cabecera.php");
 
 ?>
 
@@ -30,7 +34,7 @@ require "code/code_blog.php";
 <body>
     <div class="container">
         <br>
-        <h1 class="text-center">ARTICLOS PARA EL BLOG</h1>
+        <h1 class="text-center">ARTICULOS PARA EL BLOG</h1>
         <br>
         <!-- <div class="container-fluid">
             <form action="" class="d-flex">
@@ -173,6 +177,6 @@ require "code/code_blog.php";
 </body>
 <?php
 
-include("../template/pie.php");
+include("template/pie.php");
 
 ?>

@@ -1,11 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Ludiflex</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <div class="login-header">
+            <header style="font-size: 40px;">BIENVENIDO</header>
+            <p>Seccion administracion</p>
+        </div>
+        <form action="" method="POST">
+            <?php
+            include "config/bd.php";
+            include "controlador/controlador_admin.php";
+            ?>
+
+            <div class="input-box">
+                <input type="text" class="input-field" id="email" autocomplete="off" name="usuario" required>
+                <label for="email">Usuario</label>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" id="password" autocomplete="off" name="contrasenia" required>
+                <label for="password">Contraseña</label>
+            </div>
+
+            <div class="view">
+               <div class="fas fa-eye verPassword" onclick="vista()" id="verPassword"></div>
+            </div>
+
+            <div class="forgot">
+                <section>
+                    <input type="checkbox" id="check">
+                    <label for="check">Recordarme</label>
+                </section>
+            </div>
+
+            <div class="input-box">
+                <!-- <input type="submit" class="btn btn-outline-primary width-100" name="iniciarAdmin" value="Iniciar Admin"> -->
+
+                <input type="submit" class="input-submit" name="iniciarAdmin" value="Iniciar">
+            </div>
+            <div class="middle-text">
+                <hr>
+                <p class="or-text">EMANUEL</p>
+            </div>
+            <div class="social-sign-in">
+                <button class="input-google">
+                    <img src="images/google.png" alt="">
+                    <p>DE LA MANO DE DIOS</p>
+                </button>
+            </div>
+            <div class="sign-up">
+                <p>Volver a la pagina de inicio<a href="../index.php"> VOLVER</a></p>
+            </div>
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+<!-- 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
@@ -50,14 +116,13 @@
                         </div>
 
                         <?php
-                            include "config/bd.php";
-                            include "controlador/controlador_admin.php";
+                        // include "config/bd.php";
+                        // include "controlador/controlador_admin.php";
                         ?>
 
                         <input type="submit" class="btn btn-outline-primary width-100" name="iniciarAdmin" value="Iniciar Admin">
                         
                         <a href="../index.php" class="btn btn btn-outline-info width-100">Volver</a> 
-                        <!-- <a href="CRUD/index.php" class="btn btn btn-outline-info width-100">CRUD</a>  -->
 
 
                     </form>
@@ -71,10 +136,8 @@
 
    </section>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
-</html>
+</html> -->

@@ -1,16 +1,17 @@
 <?php
-// session_start();
-// if(empty($_SESSION["id"])){
-//     header("location:../login.php");   
-// }
+session_start();
+if(empty($_SESSION["id"])){
+    header("location:../admin.php");   
+}
 
-include("../template/cabecera.php");
+include("template/cabecera.php");
 
 ?>
 
 <?php
 require "code/code_registrar.php";
 ?>
+
 
 <div class="container">
 
@@ -194,6 +195,6 @@ require "code/code_registrar.php";
     </script>
     <?php
 
-    include("../template/pie.php");
+    include("template/pie.php");
 
     ?>

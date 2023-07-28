@@ -95,7 +95,7 @@ $listaLibros2 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
                                 <div class="col-6 py-1"><?php echo $libro['costo']; ?> / Mes</div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary px-4 mx-auto mb-4">Unete ahora</a>
+                        <!-- <a href="" class="btn btn-primary px-4 mx-auto mb-4">Unete ahora</a> -->
                     </div>
                 </div>
             <?php } ?>

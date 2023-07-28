@@ -14,11 +14,11 @@
                 header("Location: seccion/inicio.php");
 
             }else{
-                echo "<div class='alert alert-danger'>Acceso denegado</div>";
+                echo "<script>alert('Acesso denegado');</script>";
             }
  
         }else{
-            echo "Campos vacios";
+            echo "<script>alert('No puedes enviar campos vacios');</script>";
         }
     }
 
