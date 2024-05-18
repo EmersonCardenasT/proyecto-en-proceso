@@ -18,24 +18,22 @@
     
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-        $mail->isSMTP();                                            //Send using SMTP
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;        
+        $mail->isSMTP();                               
         $mail->Host       = 'smtp.gmail.com';         
-                    //Set the SMTP server to send through
-        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-        $mail->Username   = 'emerxon123@gmail.com';                     //SMTP username
-        $mail->Password   = 'rnusenqshutqpxwr';                               //SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-        $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
+        $mail->SMTPAuth   = true;                       
+        $mail->Username   = 'emerxon123@gmail.com';       
+        $mail->Password   = 'rnusenqshutqpxwr';           
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;  
+        $mail->Port       = 465;                         
         //Recipients
         $mail->setFrom($correo, $nombre);
         $mail->addAddress('emerxon123@gmail.com');
 
-        //Content
-        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->isHTML(true);                                 
         $mail->Subject = "Boletin informativo";
-        $mail->Body    = "Solicito mas informacion acerca de la eduacion en su colegio...";
+        $mail->Body    = "Solicito mas informacion acerca 
+        de la eduacion en su colegio...";
         $mail->CharSet = "UTF-8";
         $mail->send();
         echo '<script>
@@ -43,9 +41,9 @@
             window.history.go(-1);
             </script>';
             
-
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo "Message could not be sent. Mailer Error:
+         {$mail->ErrorInfo}";
     }
 
 ?>

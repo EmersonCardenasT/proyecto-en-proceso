@@ -1,8 +1,12 @@
 <?php
 
-include "template/cabecera.php";
+    include "template/cabecera.php";
+    include "administrador/config/bd.php";
 
+
+    $sql = $conexion -> query("SELECT * FROM tb_inicial");
 ?>
+
 
 <!-- Header Start -->
 <div class="container-fluid bg-primary mb-5">
@@ -18,11 +22,13 @@ include "template/cabecera.php";
 <!-- Header End -->
 
 <!-- BIENVENIDA -->
+<?php while ($datos = $sql -> fetch_object()) { ?>
+    
 <div class="container py-5">
     <div class="row">
         <div class="col-lg-12">
             <div class="d-flex flex-column text-left mb-3">
-                <p class="section-title pr-5 text-center"><span class="pr-2">INICIAL EMANUEL</span></p>
+                <p class="section-title pr-5 text-center"><span class="pr-2"><?= $datos -> title ?></span></p>
             </div>
         </div>
         <div class="col-lg-7">
@@ -41,6 +47,8 @@ include "template/cabecera.php";
         </div>
     </div>
 </div>
+
+<?php } ?>
 <!-- BIENVENIDA -->
 
 <!-- NUESTRO ENFOQUE ACADEMICO -->

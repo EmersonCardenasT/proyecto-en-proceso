@@ -13,12 +13,12 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
 
-            $sentencia = $pdo -> prepare("INSERT INTO blog(foto, titulo, descripcion) 
+            $sentencia = $conexion -> prepare("INSERT INTO blog(foto, titulo, descripcion) 
             VALUES (:foto, :titulo, :descripcion)");
 
             $Fecha = new DateTime();
@@ -45,7 +45,7 @@
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE blog SET 
+            $sentencia = $conexion -> prepare("UPDATE blog SET 
             titulo=:titulo, 
             descripcion=:descripcion WHERE id=:id"); 
 
@@ -63,7 +63,7 @@
             if($tmpFoto != ""){
                 move_uploaded_file($tmpFoto, "img/".$nombreArchivo);
 
-                $sentencia = $pdo -> prepare("SELECT foto FROM blog WHERE id=:id"); 
+                $sentencia = $conexion -> prepare("SELECT foto FROM blog WHERE id=:id"); 
                 $sentencia->bindParam(':id', $txtID);
                 $sentencia->execute();
 
@@ -79,7 +79,7 @@
                     }
                 }
 
-                $sentencia = $pdo -> prepare("UPDATE blog SET 
+                $sentencia = $conexion -> prepare("UPDATE blog SET 
                 foto=:foto WHERE id=:id"); 
                 $sentencia->bindParam(':foto', $nombreArchivo);
                 $sentencia->bindParam(':id', $txtID);
@@ -93,7 +93,7 @@
 
         case "btn3Eliminar":
 
-            $sentencia = $pdo -> prepare("SELECT foto FROM  blog WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT foto FROM  blog WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -105,7 +105,7 @@
                 }
             }
 
-            $sentencia = $pdo -> prepare("DELETE FROM blog WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM blog WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
 
@@ -124,7 +124,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
 
-            $sentencia = $pdo -> prepare("SELECT * FROM blog WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM blog WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -137,7 +137,7 @@
             
         }
 
-        $sentencia = $pdo -> prepare("SELECT * FROM blog");
+        $sentencia = $conexion -> prepare("SELECT * FROM blog");
         $sentencia -> execute();
         $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 

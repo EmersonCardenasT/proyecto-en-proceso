@@ -8,7 +8,7 @@
         $correo = $_POST['correo'];
         $clase = $_POST['clase'];
 
-        if(!empty($nombre) && !empty($correo) && !empty($clase)){
+        if(!empty($nombre) && !empty($clase)){
 
             $sql = ("INSERT INTO reserva_asientos(id, nombre, celular, correo, clase) VALUES (NULL, '$nombre', '$celular', '$correo', '$clase')");
 

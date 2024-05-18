@@ -17,12 +17,12 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
 
-            $sentencia = $pdo -> prepare("INSERT INTO clases_populares(foto, titulo, descripcion, edad, sesiones, horario, costo) 
+            $sentencia = $conexion -> prepare("INSERT INTO clases_populares(foto, titulo, descripcion, edad, sesiones, horario, costo) 
             VALUES (:foto, :titulo, :descripcion, :edad, :sesiones, :horario, :costo)");
 
             $Fecha = new DateTime();
@@ -50,7 +50,7 @@
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE clases_populares SET 
+            $sentencia = $conexion -> prepare("UPDATE clases_populares SET 
             titulo=:titulo, 
             descripcion=:descripcion, 
             edad=:edad, 
@@ -76,7 +76,7 @@
             if($tmpFoto != ""){
                 move_uploaded_file($tmpFoto, "img/".$nombreArchivo);
 
-                $sentencia = $pdo -> prepare("SELECT foto FROM clases_populares WHERE id=:id"); 
+                $sentencia = $conexion -> prepare("SELECT foto FROM clases_populares WHERE id=:id"); 
                 $sentencia->bindParam(':id', $txtID);
                 $sentencia->execute();
 
@@ -92,7 +92,7 @@
                     }
                 }
 
-                $sentencia = $pdo -> prepare("UPDATE clases_populares SET 
+                $sentencia = $conexion -> prepare("UPDATE clases_populares SET 
                 foto=:foto WHERE id=:id"); 
                 $sentencia->bindParam(':foto', $nombreArchivo);
                 $sentencia->bindParam(':id', $txtID);
@@ -106,19 +106,19 @@
 
         case "btn3Eliminar":
 
-            $sentencia = $pdo -> prepare("SELECT foto FROM clases_populares WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT foto FROM clases_populares WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
 
-            if(isset($empleado["foto"]) && ($item['foto'] != "imagen.jpg")){
+            if(isset($item['foto']) && $item['foto'] != "imagen.jpg"){
                 if(file_exists("img/".$empleado["foto"])){
                     unlink("img/".$empleado["foto"]);
 
                 }
             }
 
-            $sentencia = $pdo -> prepare("DELETE FROM clases_populares WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM clases_populares WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
 
@@ -137,7 +137,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
 
-            $sentencia = $pdo -> prepare("SELECT * FROM clases_populares WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM clases_populares WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -154,7 +154,7 @@
             
         }
 
-        $sentencia = $pdo -> prepare("SELECT * FROM clases_populares");
+        $sentencia = $conexion -> prepare("SELECT * FROM clases_populares");
         $sentencia -> execute();
         $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 

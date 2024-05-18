@@ -18,7 +18,7 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
@@ -44,7 +44,7 @@
                 break;
             }
 
-            $sentencia = $pdo -> prepare("INSERT INTO equipo(DNI, nombre, apellidos, telefono, correo, especialidad, foto) 
+            $sentencia = $conexion -> prepare("INSERT INTO equipo(DNI, nombre, apellidos, telefono, correo, especialidad, foto) 
             VALUES (:DNI, :nombre, :apellidos, :telefono, :correo, :especialidad, :foto)");
 
             $sentencia->bindParam(':DNI', $txtDNI);
@@ -73,7 +73,7 @@
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE equipo SET 
+            $sentencia = $conexion -> prepare("UPDATE equipo SET 
             DNI=:DNI, 
             nombre=:nombre, 
             apellidos=:apellidos, 
@@ -99,7 +99,7 @@
             if($tmpFoto != ""){
                 move_uploaded_file($tmpFoto, "img/".$nombreArchivo);
 
-                $sentencia = $pdo -> prepare("SELECT foto FROM equipo WHERE id=:id"); 
+                $sentencia = $conexion -> prepare("SELECT foto FROM equipo WHERE id=:id"); 
                 $sentencia->bindParam(':id', $txtID);
                 $sentencia->execute();
 
@@ -115,7 +115,7 @@
                     }
                 }
 
-                $sentencia = $pdo -> prepare("UPDATE equipo SET 
+                $sentencia = $conexion -> prepare("UPDATE equipo SET 
                 foto=:foto WHERE id=:id"); 
                 $sentencia->bindParam(':foto', $nombreArchivo);
                 $sentencia->bindParam(':id', $txtID);
@@ -129,7 +129,7 @@
     
         case "btn3Eliminar":
 
-            $sentencia = $pdo -> prepare("SELECT foto FROM equipo WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT foto FROM equipo WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -141,7 +141,7 @@
                 }
             }
 
-            $sentencia = $pdo -> prepare("DELETE FROM equipo WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM equipo WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
 
@@ -160,7 +160,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
 
-            $sentencia = $pdo -> prepare("SELECT * FROM equipo WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM equipo WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -177,7 +177,7 @@
             
         }
 
-        $sentencia = $pdo -> prepare("SELECT * FROM equipo");
+        $sentencia = $conexion -> prepare("SELECT * FROM equipo");
         $sentencia -> execute();
         $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 

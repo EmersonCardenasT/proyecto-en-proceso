@@ -12,11 +12,11 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
-            $sentencia = $pdo -> prepare("INSERT INTO talleres(titulo, descripcion) 
+            $sentencia = $conexion -> prepare("INSERT INTO talleres(titulo, descripcion) 
             VALUES (:titulo, :descripcion)");
             $sentencia->bindParam(':titulo', $txtTitulo);
             $sentencia->bindParam(':descripcion', $txtDescripcion);
@@ -28,7 +28,7 @@
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE talleres SET 
+            $sentencia = $conexion -> prepare("UPDATE talleres SET 
             titulo=:titulo, 
             descripcion=:descripcion WHERE id=:id"); 
     
@@ -43,7 +43,7 @@
     
         case "btn3Eliminar":
     
-            $sentencia = $pdo -> prepare("DELETE FROM talleres WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM talleres WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
     
@@ -62,7 +62,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
     
-            $sentencia = $pdo -> prepare("SELECT * FROM talleres WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM talleres WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -72,7 +72,7 @@
             break;
     }
 
-    $sentencia = $pdo -> prepare("SELECT * FROM talleres");
+    $sentencia = $conexion -> prepare("SELECT * FROM talleres");
     $sentencia -> execute();
     $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 

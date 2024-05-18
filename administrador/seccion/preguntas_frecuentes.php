@@ -22,9 +22,7 @@ require "code/code_preguntas.php";
   <div class="container">
 
     <form method="POST">
-
       <input type="hidden" name="txtID" value="<?php echo $txtID; ?>" placeholder="" id="txtID" require="">
-
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Pregunta</label>
         <input type="text" class="form-control" value="<?php echo $txtPreguntas; ?>" name="txtPreguntas" required>
@@ -33,14 +31,11 @@ require "code/code_preguntas.php";
         <label for="exampleInputPassword1" class="form-label">Respuesta</label>
         <input type="text" class="form-control" value="<?php echo $txtRespuesta; ?>" name="txtRespuesta" required>
       </div>
-
       <button value="btn1Agregar" <?php echo $accionAgregar; ?> type="submit" name="accion" class="btn btn-success">Agregar</button>
       <button value="btn2Modificar" <?php echo $accionModificar; ?> type="submit" name="accion" class="btn btn-warning">Modificar</button>
       <button value="btn3Eliminar" <?php echo $accionEliminar; ?> type="submit" name="accion" class="btn btn-danger" onclick="return ConfirmDelete()">Eliminar</button>
       <button value="btn4Cancelar" <?php echo $accionCancelar; ?> type="submit" name="accion" class="btn btn-primary">Cancelar</button>
-
       <br><br>
-
     </form>
     <br><br>
   </div>

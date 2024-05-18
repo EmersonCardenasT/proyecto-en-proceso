@@ -20,7 +20,7 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
@@ -49,7 +49,7 @@
             if(is_numeric($txtDNI)){
                 if($txtContraseña == $txtConfirmarContraseña){
 
-                    $sentencia = $pdo -> prepare("INSERT INTO registro_profesores(DNI, nombre, apellidos, telefono, correo, curso, foto, contrasenia, confirmarContrasenia) 
+                    $sentencia = $conexion -> prepare("INSERT INTO registro_profesores(DNI, nombre, apellidos, telefono, correo, curso, foto, contrasenia, confirmarContrasenia) 
                     VALUES (:DNI, :nombre, :apellidos, :telefono, :correo, :curso, :foto, :contrasenia, :confirmarContrasenia)");
         
                     $sentencia->bindParam(':DNI', $txtDNI);
@@ -95,7 +95,7 @@
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE registro_profesores SET 
+            $sentencia = $conexion -> prepare("UPDATE registro_profesores SET 
             DNI=:DNI, 
             nombre=:nombre, 
             apellidos=:apellidos, 
@@ -141,7 +141,7 @@
                     }
                 }
 
-                $sentencia = $pdo -> prepare("UPDATE registro_profesores SET 
+                $sentencia = $conexion -> prepare("UPDATE registro_profesores SET 
                 foto=:foto WHERE id=:id"); 
                 $sentencia->bindParam(':foto', $nombreArchivo);
                 $sentencia->bindParam(':id', $txtID);
@@ -155,7 +155,7 @@
     
         case "btn3Eliminar":
 
-            $sentencia = $pdo -> prepare("SELECT foto FROM registro_profesores WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT foto FROM registro_profesores WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -167,7 +167,7 @@
                 }
             }
 
-            $sentencia = $pdo -> prepare("DELETE FROM registro_profesores WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM registro_profesores WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
 
@@ -186,7 +186,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
 
-            $sentencia = $pdo -> prepare("SELECT * FROM registro_profesores WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM registro_profesores WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -205,6 +205,6 @@
             
         }
 
-        $sentencia = $pdo -> prepare("SELECT * FROM registro_profesores");
+        $sentencia = $conexion -> prepare("SELECT * FROM registro_profesores");
         $sentencia -> execute();
         $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);

@@ -3,10 +3,13 @@ include("template/cabecera.php");
 ?>
 <?php
 include("administrador/config/PDO.php");
+include("administrador/config/conect.php");
 
-$sentenciaSQL = $conexion->prepare("SELECT * FROM clases_populares");
-$sentenciaSQL->execute();
-$listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+// $sentenciaSQL = $conexion->prepare("SELECT * FROM clases_populares");
+// $sentenciaSQL->execute();
+// $listaLibros = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+
+$sql = $conect->query("SELECT * FROM clases_populares");
 
 $sentenciaSQL = $conexion->prepare("SELECT * FROM talleres");
 $sentenciaSQL->execute();
@@ -28,6 +31,11 @@ $sentenciaSQL = $conexion->prepare("SELECT * FROM preguntas_frecuentes");
 $sentenciaSQL->execute();
 $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
+
+$sentenciaSQL = $conexion->prepare("SELECT * FROM imagenes");
+$sentenciaSQL -> execute();
+$listaLibros = $sentenciaSQL -> fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!-- seccion preguntas frecuentes -->
@@ -39,7 +47,7 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 <div class="container-fluid bg-primary px-0 px-md-5 mb-5 ">
     <div class="row align-items-center px-3">
         <div class="col-lg-6 text-center text-lg-left">
-            <h4 class="text-white mb-4 mt-5 mt-lg-0">Colegio Cristiano</h4>
+            <!-- <h4 class="text-white mb-4 mt-5 mt-lg-0">Colegio Cristiano</h4> -->
             <h1 class="display-3 font-weight-bold text-white">¡Cada paso cuenta hacia un futuro brillante!</h1>
             <p class="text-white mb-4">En cada paso que damos, en cada esfuerzo que invertimos, nos acercamos más a
                 nuestro potencial
@@ -49,7 +57,7 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <a href="" class="btn btn-secondary mt-1 py-3 px-5">Leer mas</a>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
-            <img class="img-fluid mt-5" src="img/banner.png" alt="" height="700px" width="700px">
+            <img class="img-fluid mt-5" src="img/banner2.jpg" alt="" height="700px" width="700px">
         </div>
     </div>
 </div>
@@ -57,84 +65,15 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- SLIDER -->
 
-<div class="slider">
-        <div class="slide-track">
-            <div class="slide">
-                <img src="img/slider/about-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/category2-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/category2-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/category3-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/discount-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/home3-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/new5-img.png" alt="">
-            </div>
-
-            <div class="slide">
-                <img src="img/slider/new5-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/new5-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/category2-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/category3-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/discount-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/home3-img.png" alt="">
-            </div>
-            <div class="slide">
-                <img src="img/slider/new5-img.png" alt="">
-            </div>
-        </div>
-    </div>
 
 <!--    fin slider -->
-
-<!-- INICIO SECCION COMENTARIOS -->
-<br>
-<h2 class="text-center">PREGUNTAS FRECUENTES</h2>
-<br>
-<div class="accordion container" id="accordionPanelsStayOpenExample">
-  <div class="accordion-item">
-  <?php foreach ($listaLibros8 as $libro) { ?>
-    <h1 class="" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        <?php echo $libro['pregunta']; ?>
-      </button>
-    </h1>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
-        <?php echo $libro['respuesta']; ?>
-      </div>
-    </div>
-    <?php } ?>
-  </div>
-</div><br>
-<!-- FIN SECCION COMENTARIOS -->
 
 <!-- About Start -->
 <div class="container-fluid py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5">
-                <iframe width="450" height="380" src="https://www.youtube.com/embed/_HIh8osVgzs"
+                <iframe width="450" height="380" src="https://www.facebook.com/100003919658320/videos/1709403272870240/"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
@@ -236,8 +175,6 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 <!-- Facilities Start -->
 
 
-
-
 <!-- Class Start -->
 <div class="container-fluid pt-5">
     <div class="container">
@@ -246,42 +183,42 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <h1 class="mb-4">Clases de verano</h1>
         </div>
         <div class="row">
-            <?php foreach ($listaLibros as $libro) { ?>
+            <?php while ($datos = $sql->fetch_object()) { ?>
                 <div class="col-lg-4 mb-5">
                     <div class="card border-0 bg-light shadow-sm pb-2">
-                        <img class="card-img-top mb-2" src="./administrador/seccion/img/<?php echo $libro['foto']; ?>"
+                        <img class="card-img-top mb-2" src="./administrador/seccion/img/<?= $datos->foto; ?>"
                             alt="" width="200px" height="300px">
                         <div class="card-body text-center">
                             <h4 class="card-title">
-                                <?php echo $libro['titulo']; ?>
+                                <?= $datos->titulo; ?>
                             </h4>
                             <p class="card-text">
-                                <?php echo $libro['descripcion']; ?>
+                                <?= $datos->descripcion; ?>
                             </p>
                         </div>
                         <div class="card-footer bg-transparent py-4 px-5">
                             <div class="row border-bottom">
                                 <div class="col-6 py-1 text-right border-right"><strong>Edad de los niños</strong></div>
                                 <div class="col-6 py-1">
-                                    <?php echo $libro['edad']; ?>
+                                    <?= $datos->edad; ?>
                                 </div>
                             </div>
                             <div class="row border-bottom">
                                 <div class="col-6 py-1 text-right border-right"><strong>Total de sesiones</strong></div>
                                 <div class="col-6 py-1">
-                                    <?php echo $libro['sesiones']; ?>
+                                    <?= $datos->sesiones; ?>
                                 </div>
                             </div>
                             <div class="row border-bottom">
                                 <div class="col-6 py-1 text-right border-right"><strong>Tiempo de clases</strong></div>
                                 <div class="col-6 py-1">
-                                    <?php echo $libro['horario']; ?>
+                                    <?= $datos->horario; ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6 py-1 text-right border-right"><strong>Costo</strong></div>
                                 <div class="col-6 py-1">
-                                    <?php echo $libro['costo']; ?> / Mes
+                                    <?= $datos->costo; ?> / Mes
                                 </div>
                             </div>
                         </div>
@@ -318,7 +255,7 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-lg-5">
                 <div class="card border-0">
                     <div class="card-header bg-secondary text-center p-4">
-                        <h1 class="text-white m-0">Solicitar mas informacion</h1>
+                        <h1 class="text-white m-0">Nos pondremos en contacto con Usted</h1>
                     </div>
                     <div class="card-body rounded-bottom bg-primary p-5">
                         <form method="POST" action="pag_principal/reservar_asiento.php">
@@ -422,47 +359,6 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 </div>
 <!-- Blog End -->
 
-<!-- Contact Start -->
-<!-- <div class="container-fluid pt-5 text-center">
-    <div class="container">
-        <div class="text-center pb-2">
-            <p class="section-title px-5"><span class="px-2">Seccion de Comentarios</span></p>
-            <h1 class="mb-4">Dejanos tu opinion</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 mb-5">
-                <div class="contact-form">
-                    <div id="success"></div>
-
-
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate" method="POST" action="administrador/seccion/code/code_comentario.php">
-
-                        <input type="hidden" name="txtID" value="" placeholder="" id="txtID" require="">
-                        <div class="control-group">
-                            <input type="text" class="form-control" name="txtNombre" placeholder="Tu nombre" required="required" value="" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control" name="txtProfesion" placeholder="Tu profesion(opcional)" value="" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <textarea name="txtComentario" id="" cols="30" rows="10" class="form-control" placeholder="Comentario" required="required" value=""></textarea>
-
-                        </div>
-                        <br><br>
-                        <button type="submit" class="btn btn-primary py-2 px-4" id="accion" name="accion" value="comentar">Comentar</button>
-                </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-</div> -->
-<!-- Contact End -->
-
-
 
 <!-- Testimonial Start -->
 <div class="container-fluid py-5">
@@ -504,14 +400,37 @@ $listaLibros8 = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 <!-- Testimonial End -->
+
+<!-- INICIO SECCION COMENTARIOS -->
+<br>
+<h2 class="text-center">PREGUNTAS FRECUENTES</h2>
+<br>
+<div class="accordion container" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item">
+  <?php foreach ($listaLibros8 as $libro) { ?>
+    <h1 class="" id="panelsStayOpen-headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        <?php echo $libro['pregunta']; ?>
+      </button>
+    </h1>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+        <?php echo $libro['respuesta']; ?>
+      </div>
+    </div>
+    <?php } ?>
+  </div>
+</div><br>
+<!-- FIN SECCION COMENTARIOS -->
+
 <br>
 <!-- Mapà -->
 <div class="container-fluid">
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.4607962379064!2d-74.8781186240999!3d-10.928522722091268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910a2b6294c8bb57%3A0x9693a9b1feb4303d!2sColegio%20Emanuel!5e0!3m2!1ses!2spe!4v1688519815106!5m2!1ses!2spe"
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1956.3089567779584!2d-74.7007216!3d-11.289472199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910bc33a04d4647b%3A0x3793328afcbb3cb1!2sI.E.I.%20%22ANTONIO%20RAYMONDI%22!5e0!3m2!1ses!2spe!4v1716044048550!5m2!1ses!2spe"   
+    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+    </div>
 
 
 

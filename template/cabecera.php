@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
             <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
                 <i class="bi bi-journal-medical"></i>
-                <span class="text-primary">I.E.P. EMANUEL</span>
+                <span class="text-primary">I.E.I ANTONIO RAYMONDI</span>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>

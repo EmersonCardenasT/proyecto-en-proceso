@@ -12,23 +12,22 @@
     $accionModificar = $accionEliminar = $accionCancelar = "disabled";
     $mostrarModal = false;
 
-    include "../CRUD2/conexion/conexion.php";
+    include "../config/PDO.php";
 
     switch($accion){
         case "btn1Agregar":
-            $sentencia = $pdo -> prepare("INSERT INTO preguntas_frecuentes(pregunta, respuesta) 
+            $sentencia = $conexion -> prepare("INSERT INTO preguntas_frecuentes(pregunta, respuesta) 
             VALUES (:pregunta, :respuesta)");
             $sentencia->bindParam(':pregunta', $txtPreguntas);
             $sentencia->bindParam(':respuesta', $txtRespuesta);
             $sentencia->execute(); 
             
             header("Location: preguntas_frecuentes.php");
-
             break;
 
         case "btn2Modificar":
 
-            $sentencia = $pdo -> prepare("UPDATE preguntas_frecuentes SET 
+            $sentencia = $conexion -> prepare("UPDATE preguntas_frecuentes SET 
             pregunta=:pregunta, 
             respuesta=:respuesta WHERE id=:id"); 
     
@@ -43,7 +42,7 @@
     
         case "btn3Eliminar":
     
-            $sentencia = $pdo -> prepare("DELETE FROM preguntas_frecuentes WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("DELETE FROM preguntas_frecuentes WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
     
@@ -62,7 +61,7 @@
             $accionModificar = $accionEliminar = $accionCancelar = "";
             $mostrarModal = true;
     
-            $sentencia = $pdo -> prepare("SELECT * FROM preguntas_frecuentes WHERE id=:id"); 
+            $sentencia = $conexion -> prepare("SELECT * FROM preguntas_frecuentes WHERE id=:id"); 
             $sentencia->bindParam(':id', $txtID);
             $sentencia->execute();
             $empleado = $sentencia -> fetch(PDO::FETCH_LAZY);
@@ -72,7 +71,7 @@
             break;
     }
 
-    $sentencia = $pdo -> prepare("SELECT * FROM preguntas_frecuentes");
+    $sentencia = $conexion -> prepare("SELECT * FROM preguntas_frecuentes");
     $sentencia -> execute();
     $listaEmpleados = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
 

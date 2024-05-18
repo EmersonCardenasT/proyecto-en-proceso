@@ -43,7 +43,7 @@
         }
     </script>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         function ConfirmClose() {
             var respuesta = confirm("Estas seguro que deseas cerrar Sesion?");
 
@@ -66,9 +66,6 @@
             <a href="equipoTrabajo.php" class="nav-item nav-link active">Equipo Trabajo</a>
             <a href="clases_populares.php" class="nav-item nav-link active">Clases Populares</a>
             <a href="blog.php" class="nav-item nav-link active">Blog</a>
-            <a href="inicial.php" class="nav-item nav-link active">Inicial</a>
-            <a href="primaria.php" class="nav-item nav-link active">Primaria</a>
-            <a href="secundaria.php" class="nav-item nav-link active">Secundaria</a>
             <a href="productos.php" class="nav-item nav-link active">Fotos</a>
             <a href="tallerActividad.php" class="nav-item nav-link active">Talleres</a>
             <a href="preguntas_frecuentes.php" class="nav-item nav-link active">Preguntas Frecuentes</a>
